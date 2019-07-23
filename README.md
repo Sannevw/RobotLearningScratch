@@ -46,3 +46,29 @@ Follow these steps (for more info see: [Scratch modification guide](https://scra
 Runing `npm start` from the scratch-gui folder will host the website locally to test.
 
 Follow these instructions here to install from the beginning if anything is wrong: [Scratch modification guide](https://scratch.mit.edu/discuss/topic/289503/?page=1)
+
+
+## Set the default project
+
+One way to do this is to change in `scratch-gui\src\lib\project-fetcher-hoc.jsx` line 75-91. Initialize projectId specifically to your project's id, which can be found in the Scratch URL https://scratch.mit.edu/projects/ID_OF_YOUR_PROJECT/editor/
+
+```javascript
+fetchProject (projectId, loadingState) {
+            projectId = 'INSERT_YOUR_PROJECTS_ID';
+            return storage
+                .load(storage.AssetType.Project, projectId, storage.DataFormat.JSON)
+                .then(projectAsset => {
+                    if (projectAsset) {
+                        this.props.onFetchedProjectData(projectAsset.data, loadingState);
+                    } else {
+                        // Treat failure to load as an error
+                        // Throw to be caught by catch later on
+                        throw new Error('Could not find project');
+                    }
+                })
+                .catch(err => {
+                    this.props.onError(err);
+                    log.error(err);
+                });
+        }
+```

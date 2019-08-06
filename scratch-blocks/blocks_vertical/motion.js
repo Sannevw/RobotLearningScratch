@@ -21,7 +21,6 @@
 'use strict';
 
 goog.provide('Blockly.Blocks.motion');
-
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Colours');
 goog.require('Blockly.constants');
@@ -625,18 +624,51 @@ Blockly.Blocks['motion_gridmove'] = {
 
   Blockly.Blocks['motion_pickobject'] = {
    /**
-   * Block to move one grid square.
+   * Block to pick up an object.
    * @this Blocky.Block
    */
    init: function() {
     this.jsonInit({
      "message0": Blockly.Msg.MOTION_PICKOBJECT,
+	 "args0": [
+        {
+          "type": "input_value",
+          "name": "OBJECT"
+        }],
      "category": Blockly.Categories.motion,
      "extensions": ["colours_motion", "shape_statement"]
     });
  }
 };
 
+Blockly.Blocks['motion_of'] = {
+  /**
+   * Block to report properties of sprites.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.MOTION_OF,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "PROPERTY",
+          "options": [
+            ['Sprite1', 'Sprite1']
+          ]
+        },
+        {
+          "type": "input_value",
+          "name": "OBJECT"
+        }
+      ],
+      "output": true,
+      "category": Blockly.Categories.motion,
+      //"outputShape": Blockly.OUTPUT_SHAPE_ROUND,
+      "extensions": ["colours_motion", "shape_statement"]
+    });
+  }
+};
 Blockly.Blocks['motion_left'] = {
   /**
    * Block to turn left.

@@ -10,6 +10,7 @@ const StageLayering = require('../engine/stage-layering');
 
 const s3Looks = require('./scratch3_looks');
 const s3Sens = require('./scratch3_sensing');
+//const s3Events = require('./scratch3_events');
 
 class Scratch3MotionBlocks {
     constructor (runtime) {
@@ -18,11 +19,9 @@ class Scratch3MotionBlocks {
          * @type {Runtime}
          */
         this.runtime = runtime;
-
-        //let Looks = new s3Looks(this.runtime);
-
-        //let Sens = new s3Sens(this.runtime);
-
+        this.Sens = new s3Sens(this.runtime);
+        this.Looks = new s3Looks(this.runtime);
+		//this.Events = new s3Events(this.runtime);
     }
 
     /**
@@ -52,8 +51,10 @@ class Scratch3MotionBlocks {
 	          motion_movespin: this.moveSpin,
 	          motion_gridmove: this.gridMove,
             motion_pickobject: this.pickObject,
+			motion_pickobjectif: this.pickObjectIf,
             motion_right: this.right,
             motion_left: this.left,
+			motion_of: this.pickAndPlace,
             // Legacy no-op blocks:
             motion_scroll_right: () => {},
             motion_scroll_up: () => {},
@@ -333,11 +334,11 @@ class Scratch3MotionBlocks {
       }
 
 
-      let Sens = new s3Sens(this.runtime);
+//      let Sens = new s3Sens(this.runtime);
 
-      if(Sens.touchingColor(red, util) || Sens.touchingColor(blue, util) || Sens.touchingColor(green, util)){
-        let Looks = new s3Looks(this.runtime);
-        Looks.sayforsecs({MESSAGE: 'Cant go there. Retry!', SECS: 3}, util);
+      if(this.Sens.touchingColor(red, util) || this.Sens.touchingColor(blue, util) || this.Sens.touchingColor(green, util)){
+        //let Looks = new s3Looks(this.runtime);
+        this.Looks.sayforsecs({MESSAGE: "I can't go there!", SECS: 3}, util);
         if (util.stackTimerNeedsInit()) {
             const duration = 3000;
             util.startStackTimer(duration);
@@ -364,24 +365,91 @@ class Scratch3MotionBlocks {
     }
 
     pickObject(args, util){
+	  console.log(this.runtime._editingTarget.sprite.name);
 
-      let Sens = new s3Sens(this.runtime);
+      if(this.Sens.touchingObject({TOUCHINGOBJECTMENU: 'news'}, util)){
 
-      if(Sens.touchingObject({TOUCHINGOBJECTMENU: 'news'}, util)){
         //let Event = new s3Event(this.runtime);
         //Event.broadcast({BROADCAST_OPTION.name: 'pick_up', BROADCAST_OPTION.id: 'j(bq%qx3[]JbP+2aWaM_'}, util);
         util.startHats('event_whenbroadcastreceived', {
             BROADCAST_OPTION: 'pick_up'
         });
-        let Looks = new s3Looks(this.runtime);
-        Looks.sayforsecs({MESSAGE: 'Picked up the newspaper', SECS: 3}, util);
-      }else{
-        let Looks = new s3Looks(this.runtime);
-        Looks.sayforsecs({MESSAGE: 'I cant pick up a newspaper here.', SECS: 3}, util);
+        this.Looks.sayforsecs({MESSAGE: 'Picked up the newspaper', SECS: 3}, util);
+		//this.Looks.broadcast({BROADCAST_OPTION.name: 'news_picked'}, util);
+      }else{0
+  		console.log("message:", Cast.toString(args.OBJECT));
+		if(args.OBJECT !== '') {
+        //let Looks = new s3Looks(this.runtime);
+        this.Looks.sayforsecs({MESSAGE: 'There is no ' + Cast.toString(args.OBJECT) + ' to pick up here.', SECS: 3}, util);
+		}
+		else{
+			this.Looks.sayforsecs({MESSAGE: 'Specify which object you want me to pick up here.', SECS: 3}, util);
+		}
       }
 
 
     }
+
+
+	pickObjectIf(args, util){
+	  name = this.Sens.getAttributeOf({PROPERTY: "costume name"});
+	  console.log("name: ", name);
+      if(name == 'cozmo'){
+
+        //let Event = new s3Event(this.runtime);
+        //Event.broadcast({BROADCAST_OPTION.name: 'pick_up', BROADCAST_OPTION.id: 'j(bq%qx3[]JbP+2aWaM_'}, util);
+        util.startHats('event_whenbroadcastreceived', {
+            BROADCAST_OPTION: 'pick_up'
+        });
+        this.Looks.sayforsecs({MESSAGE: 'Picked up the newspaper', SECS: 3}, util);
+		//this.Looks.broadcast({BROADCAST_OPTION.name: 'news_picked'}, util);
+      }else{0
+  		console.log("message:", Cast.toString(args.OBJECT));
+		if(args.OBJECT !== '') {
+        //let Looks = new s3Looks(this.runtime);
+        this.Looks.sayforsecs({MESSAGE: 'There is no ' + Cast.toString(args.OBJECT) + ' to pick up here.', SECS: 3}, util);
+		}
+		else{
+			this.Looks.sayforsecs({MESSAGE: 'Specify which object you want me to pick up here.', SECS: 3}, util);
+		}
+      }
+
+
+    }
+
+    pickAndPlace (args, util) {
+		console.log("HI");
+
+        let pickTarget;
+		let placeTarget;
+
+
+        if (args.OBJECT != args.PROPERTY) {
+			args.PROPERTY = Cast.toString(args.PROPERTY);
+			args.OBJECT = Cast.toString(args.OBJECT);
+            pickTarget = this.runtime.getSpriteTargetByName(args.PROPERTY);
+            placeTarget = this.runtime.getSpriteTargetByName(args.OBJECT);
+			//pickTarget.setXY(util.pickTarget.x + dx, util.target.y + dy);
+            console.log("put this: ", args.PROPERTY);
+            console.log("on: ", args.OBJECT);
+            util.startHats('event_whenbroadcastreceived', {
+                BROADCAST_OPTION: 'move_blue'
+            });
+
+        } else {
+            console.log("same object");
+        }
+
+        // attrTarget can be undefined if the target does not exist
+        // (e.g. single sprite uploaded from larger project referencing
+        // another sprite that wasn't uploaded)
+        if (!pickTarget) return 0;
+        if (!placeTarget) return 0;
+
+		//console.log("x pos : ", attrTarget.x);
+        }
+
+
 
     right (args, util) {
         const degrees = 90;

@@ -5,12 +5,10 @@ import projectData from './project-data';
 /* eslint-disable import/no-unresolved */
 import popWav from '!arraybuffer-loader!./83a9787d4cb6f3b7632b4ddfebf74367.wav';
 import meowWav from '!arraybuffer-loader!./83c36d806dc92327b9e7049a565c6bff.wav';
-/*import backdrop from '!raw-loader!./cd21514d0531fdffb22204e0ec5ed84a.svg';
-import costume1 from '!raw-loader!./09dc888b0b7df19f70d81588ae73420e.svg';
-import costume2 from '!raw-loader!./3696356a03a8d938318876a593572843.svg';*/
+
 import backdrop from '!raw-loader!./Living-Room-Scene_001.svg';
 import costume1 from '!raw-loader!./robot-svgrepo-com.svg';
-import costume2 from '!raw-loader!./robot-svgrepo-com.svg';
+import costume2 from '!raw-loader!./pepper.png';
 /* eslint-enable import/no-unresolved */
 
 const defaultProject = translator => {
@@ -46,16 +44,14 @@ const defaultProject = translator => {
         data: encoder.encode(backdrop)
     }, {
         id: '09dc888b0b7df19f70d81588ae73420e',
-	//id: 'robot',
+	assetType: 'ImageVector',
+        dataFormat: 'PNG',
+        data: encoder.encode(costume2)
+    }, {
+        id: '3696356a03a8d938318876a593572843',
 	assetType: 'ImageVector',
         dataFormat: 'SVG',
         data: encoder.encode(costume1)
-    }, {
-        id: '3696356a03a8d938318876a593572843',
-	//id: 'robot',
-	assetType: 'ImageVector',
-        dataFormat: 'SVG',
-        data: encoder.encode(costume2)
     }];
 };
 

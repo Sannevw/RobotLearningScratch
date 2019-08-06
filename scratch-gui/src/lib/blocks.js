@@ -122,7 +122,12 @@ export default function (vm) {
                     if (vm.runtime.targets[targetId] === vm.editingTarget) {
                         continue;
                     }
-                    sprites.push([vm.runtime.targets[targetId].sprite.name, vm.runtime.targets[targetId].sprite.name]);
+                    if (vm.runtime.targets[targetId].sprite.name.includes("Cylinder"))
+                    {
+                        console.log(vm.runtime.targets[targetId].sprite.name);
+                        // eslint-disable-next-line max-len
+                        sprites.push([vm.runtime.targets[targetId].sprite.name, vm.runtime.targets[targetId].sprite.name]);
+                    }
                 }
             }
         }
@@ -204,9 +209,10 @@ export default function (vm) {
     };
 
     ScratchBlocks.Blocks.sensing_of_object_menu.init = function () {
-        const stage = ScratchBlocks.ScratchMsgs.translate('SENSING_OF_STAGE', 'Stage');
+        //const stage = ScratchBlocks.ScratchMsgs.translate('SENSING_OF_STAGE', 'Stage');
+        //const sprite = ScratchBlocks.ScratchMsgs.translate('SENSING_OF_SPRITE', 'Sprite');
         const json = jsonForMenuBlock('OBJECT', spriteMenu, sensingColors, [
-            [stage, '_stage_']
+            //[sprite, '_sprite_']
         ]);
         this.jsonInit(json);
     };

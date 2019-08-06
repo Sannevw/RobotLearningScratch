@@ -2155,8 +2155,10 @@ class Runtime extends EventEmitter {
      * @return {?Target} The target, if found.
      */
     getTargetById (targetId) {
+        //console.log("target: ", targetId);
         for (let i = 0; i < this.targets.length; i++) {
             const target = this.targets[i];
+            //console.log(target.getName());
             if (target.id === targetId) {
                 return target;
             }
@@ -2169,7 +2171,9 @@ class Runtime extends EventEmitter {
      * @return {?Target} Target representing a sprite of the given name.
      */
     getSpriteTargetByName (spriteName) {
+        console.log("spritneames: ", spriteName);
         for (let i = 0; i < this.targets.length; i++) {
+            console.log(this.targets[i].name);
             const target = this.targets[i];
             if (target.isStage) {
                 continue;

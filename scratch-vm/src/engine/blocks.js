@@ -593,6 +593,14 @@ class Blocks {
                     }
                     this.runtime.requestBlocksUpdate();
                 }
+				if (block.opcode === 'motion_of_object_menu') {
+                    if (block.fields.OBJECT.value === '_stage_') {
+                        this._blocks[block.parent].fields.PROPERTY.value = 'backdrop #';
+                    } else {
+                        this._blocks[block.parent].fields.PROPERTY.value = 'x position';
+                    }
+                    this.runtime.requestBlocksUpdate();
+                }
 
                 const flyoutBlock = block.shadow && block.parent ? this._blocks[block.parent] : block;
                 if (flyoutBlock.isMonitored) {

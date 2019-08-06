@@ -154,8 +154,24 @@ const motion = function (isStage, targetId) {
             </value>
         </block>
         ${blockSeparator}
-        <block type="motion_pickobject"/>
-        <block type="motion_left"/>
+		<block type="motion_pickobject">
+			<value name="OBJECT">
+				<shadow type="math_number">
+					<field name="NUM"/>
+				</shadow>
+			</value>
+		</block>
+		<block id="of" type="motion_of">
+			<value name="PROPERTY">
+				<shadow id="sensing_of_object_menu" 
+				type="sensing_of_object_menu"/>
+			</value>
+			<value name="OBJECT">
+				<shadow id="sensing_of_object_menu" 
+				type="sensing_of_object_menu"/> //only works with sensing, i give up trying to change this
+			</value>
+		</block>
+		<block type="motion_left"/>
         <block type="motion_right"/> `}
         ${categorySeparator}
     </category>
@@ -536,6 +552,11 @@ const sensing = function (isStage) {
                 </value>
             </block>
             ${blockSeparator}
+			<block type="sensing_touchingcolor">
+				<value name="COLOR">
+					<shadow type="colour_picker"/>
+				</value>
+			</block>
         `}
 
         ${categorySeparator}
@@ -796,7 +817,7 @@ const makeToolboxXML = function (isStage, targetId, categoriesXML,
         //sound(isStage, targetId, soundName), gap,
         events(isStage, targetId), gap,
         control(isStage, targetId), gap,
-        sensing(isStage, targetId), gap,
+        //sensing(isStage, targetId), gap,
         operators(isStage, targetId), gap,
         variables(isStage, targetId)//, gap,
         //myBlocks(isStage, targetId)

@@ -43,11 +43,11 @@ const projectData = translateFunction => {
                 currentCostume: 0,
                 costumes: [
                     {
-                        assetId: 'cd21514d0531fdffb22204e0ec5ed84a',
+                        assetId: '7228e5403e611b0b6514e407ad35fe38',
                         name: translator(messages.backdrop, {index: 1}),
-                        md5ext: 'cd21514d0531fdffb22204e0ec5ed84a.svg',
+                        md5ext: '7228e5403e611b0b6514e407ad35fe38.svg',
                         dataFormat: 'svg',
-                        rotationCenterX: 240,
+                        rotationCenterX: 240, 
                         rotationCenterY: 180
                     }
                 ],
@@ -74,13 +74,11 @@ const projectData = translateFunction => {
                 currentCostume: 0,
                 costumes: [
                     {
-                        assetId: 'b7853f557e4426412e64bb3da6531a99',
-                        //assetId: 'robot',
+                        assetId: '09dc888b0b7df19f70d81588ae73420e',
                         name: translator(messages.costume, {index: 1}),
                         bitmapResolution: 1,
-			md5ext: 'b7853f557e4426412e64bb3da6531a99.svg',                        
-			//md5ext: 'robot-svgrepo-com.svg',
-                        dataFormat: 'svg',
+			md5ext: '09dc888b0b7df19f70d81588ae73420e.png',                        
+                        dataFormat: 'png',
                         rotationCenterX: 48,
                         rotationCenterY: 50
                     },

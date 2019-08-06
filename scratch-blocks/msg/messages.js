@@ -180,10 +180,12 @@ Blockly.Msg.MOTION_XSCROLL = 'x scroll';
 Blockly.Msg.MOTION_YSCROLL = 'y scroll';
 Blockly.Msg.MOTION_STAGE_SELECTED = 'Stage selected: no motion blocks';
 Blockly.Msg.MOTION_MOVESPIN = 'move %1 steps and spin';
-Blockly.Msg.MOTION_GRIDMOVE = 'move %1 square forward';
-Blockly.Msg.MOTION_PICKOBJECT = 'pick up newspaper';
+Blockly.Msg.MOTION_GRIDMOVE = 'move %1 step forward';
+Blockly.Msg.MOTION_PICKOBJECT = 'pick up %1';
 Blockly.Msg.MOTION_LEFT = 'turn to the left %1';
 Blockly.Msg.MOTION_RIGHT = 'turn to the right %1';
+Blockly.Msg.MOTION_OF = 'pick up %1 and place on %2';
+Blockly.Msg.MOTION_PICKANDPLACE_COSTUMENAME = 'costume name';
 
 // Operators blocks
 Blockly.Msg.OPERATORS_ADD = '%1 + %2';
@@ -258,6 +260,7 @@ Blockly.Msg.SENSING_OF_VOLUME = 'volume';
 Blockly.Msg.SENSING_OF_BACKDROPNUMBER = 'backdrop #';
 Blockly.Msg.SENSING_OF_BACKDROPNAME = 'backdrop name';
 Blockly.Msg.SENSING_OF_STAGE = 'Stage';
+Blockly.Msg.SENSING_OF_SPRITE = 'Sprite';
 Blockly.Msg.SENSING_CURRENT = 'current %1';
 Blockly.Msg.SENSING_CURRENT_YEAR = 'year';
 Blockly.Msg.SENSING_CURRENT_MONTH = 'month';

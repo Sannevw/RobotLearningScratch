@@ -279,13 +279,16 @@ class Scratch3SensingBlocks {
     }
 
     getAttributeOf (args) {
+		console.log("HI");
         let attrTarget;
-
+		console.log(args.OBJECT);
         if (args.OBJECT === '_stage_') {
             attrTarget = this.runtime.getTargetForStage();
         } else {
             args.OBJECT = Cast.toString(args.OBJECT);
             attrTarget = this.runtime.getSpriteTargetByName(args.OBJECT);
+			
+			console.log("sprite by name: ", attrTarget);
         }
 
         // attrTarget can be undefined if the target does not exist

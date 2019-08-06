@@ -350,6 +350,7 @@ class Scratch3LooksBlocks {
     }
 
     hide (args, util) {
+		console.log(args);
         util.target.setVisible(false);
         this._renderBubble(util.target);
     }
@@ -514,6 +515,8 @@ class Scratch3LooksBlocks {
         const change = Cast.toNumber(args.CHANGE);
         if (!util.target.effects.hasOwnProperty(effect)) return;
         let newValue = change + util.target.effects[effect];
+		const color = Cast.toRgbColorList(args.COLOR);
+		console.log(color);
         newValue = this.clampEffect(effect, newValue);
         util.target.setEffect(effect, newValue);
     }

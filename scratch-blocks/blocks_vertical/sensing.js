@@ -419,12 +419,11 @@ Blockly.Blocks['sensing_of_object_menu'] = {
           ]
         }
       ],
-      "category": Blockly.Categories.sensing,
+      "category": Blockly.Categories.motion,
       "extensions": ["colours_sensing", "output_string"]
     });
   }
 };
-
 
 Blockly.Blocks['sensing_of'] = {
   /**
@@ -436,7 +435,7 @@ Blockly.Blocks['sensing_of'] = {
       "message0": Blockly.Msg.SENSING_OF,
       "args0": [
         {
-          "type": "field_dropdown",
+          "type": "input_value",
           "name": "PROPERTY",
           "options": [
             [Blockly.Msg.SENSING_OF_XPOSITION, 'x position'],

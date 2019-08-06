@@ -62,7 +62,8 @@ class StageSelector extends React.Component {
         this.handleNewBackdrop(vmBackdrop);
     }
     handleClick () {
-        this.props.onSelect(this.props.id);
+		console.log("Clicked");
+        //this.props.onSelect(this.props.id);
     }
     handleNewBackdrop (backdrops_) {
         const backdrops = Array.isArray(backdrops_) ? backdrops_ : [backdrops_];

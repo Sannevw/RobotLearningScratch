@@ -117,3 +117,16 @@ to
  ```
  
  And in the json of the project, set draggable=False
+
+## Change the name of the project from "Scratch Project" to "Robot Programming" in the interface
+in .\scratch-gui\src\containers\gui.jsx
+
+```javascript
+const messages = defineMessages({
+    defaultProjectTitle: {
+        id: 'Robot Programming',
+        description: 'Default title for project',
+        defaultMessage: 'Robot Programming'
+    }
+});
+```

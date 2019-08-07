@@ -50,6 +50,15 @@ Follow these instructions here to install from the beginning if anything is wron
 
 ## Set the default project
 
+[UPDATE]
+Better way to do it, is to change the hardcoded default project id in this file:
+scratch-gui\src\reducers\project-state.js
+
+line 28 
+```javascript
+const defaultProjectId = '321147033'; // hardcoded id of default project
+```
+
 One way to do this is to change in `scratch-gui\src\lib\project-fetcher-hoc.jsx` line 75-91. Initialize projectId specifically to your project's id, which can be found in the Scratch URL https://scratch.mit.edu/projects/ID_OF_YOUR_PROJECT/editor/
 
 ```javascript

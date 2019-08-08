@@ -51,7 +51,6 @@ class Scratch3MotionBlocks {
 	          motion_movespin: this.moveSpin,
 	          motion_gridmove: this.gridMove,
             motion_pickobject: this.pickObject,
-			motion_pickobjectif: this.pickObjectIf,
             motion_right: this.right,
             motion_left: this.left,
 			motion_of: this.pickAndPlace,
@@ -372,35 +371,9 @@ class Scratch3MotionBlocks {
         //let Event = new s3Event(this.runtime);
         //Event.broadcast({BROADCAST_OPTION.name: 'pick_up', BROADCAST_OPTION.id: 'j(bq%qx3[]JbP+2aWaM_'}, util);
         util.startHats('event_whenbroadcastreceived', {
-            BROADCAST_OPTION: 'pick_up'
+            BROADCAST_OPTION: 'news_picked'
         });
-        this.Looks.sayforsecs({MESSAGE: 'Picked up the newspaper', SECS: 3}, util);
-		//this.Looks.broadcast({BROADCAST_OPTION.name: 'news_picked'}, util);
-      }else{0
-  		console.log("message:", Cast.toString(args.OBJECT));
-		if(args.OBJECT !== '') {
-        //let Looks = new s3Looks(this.runtime);
-        this.Looks.sayforsecs({MESSAGE: 'There is no ' + Cast.toString(args.OBJECT) + ' to pick up here.', SECS: 3}, util);
-		}
-		else{
-			this.Looks.sayforsecs({MESSAGE: 'Specify which object you want me to pick up here.', SECS: 3}, util);
-		}
-      }
-
-
-    }
-
-
-	pickObjectIf(args, util){
-	  name = this.Sens.getAttributeOf({PROPERTY: "costume name"});
-	  console.log("name: ", name);
-      if(name == 'cozmo'){
-
-        //let Event = new s3Event(this.runtime);
-        //Event.broadcast({BROADCAST_OPTION.name: 'pick_up', BROADCAST_OPTION.id: 'j(bq%qx3[]JbP+2aWaM_'}, util);
-        util.startHats('event_whenbroadcastreceived', {
-            BROADCAST_OPTION: 'pick_up'
-        });
+        console.log("news picked? ");
         this.Looks.sayforsecs({MESSAGE: 'Picked up the newspaper', SECS: 3}, util);
 		//this.Looks.broadcast({BROADCAST_OPTION.name: 'news_picked'}, util);
       }else{0
@@ -425,19 +398,20 @@ class Scratch3MotionBlocks {
 
 
         if (args.OBJECT != args.PROPERTY) {
-			args.PROPERTY = Cast.toString(args.PROPERTY);
-			args.OBJECT = Cast.toString(args.OBJECT);
-            pickTarget = this.runtime.getSpriteTargetByName(args.PROPERTY);
-            placeTarget = this.runtime.getSpriteTargetByName(args.OBJECT);
-			//pickTarget.setXY(util.pickTarget.x + dx, util.target.y + dy);
+            pickTarget = Cast.toString(args.PROPERTY);
+			placeTarget = Cast.toString(args.OBJECT);
+            //pickTarget = this.runtime.getSpriteTargetByName(args.PROPERTY);
+            //placeTarget = this.runtime.getSpriteTargetByName(args.OBJECT);
             console.log("put this: ", args.PROPERTY);
-            console.log("on: ", args.OBJECT);
+            console.log("on: ", placeTarget);
+            var message1 = pickTarget+'_'+placeTarget;
             util.startHats('event_whenbroadcastreceived', {
-                BROADCAST_OPTION: 'move_blue'
+                    BROADCAST_OPTION: message1
             });
-
+            console.log("msg: ", message1);
         } else {
             console.log("same object");
+            this.Looks.sayforsecs({MESSAGE: 'I cannot stack object onto themselves.', SECS: 3}, util);
         }
 
         // attrTarget can be undefined if the target does not exist
@@ -446,9 +420,7 @@ class Scratch3MotionBlocks {
         if (!pickTarget) return 0;
         if (!placeTarget) return 0;
 
-		//console.log("x pos : ", attrTarget.x);
-        }
-
+    }
 
 
     right (args, util) {

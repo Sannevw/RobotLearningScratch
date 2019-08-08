@@ -1,5 +1,6 @@
 import ScratchBlocks from 'scratch-blocks';
-
+import {defaultProjectId} from "../reducers/project-state";
+//const projectLoader = require('./project-fetcher-hoc.jsx');
 /**
  * Connect scratch blocks with the vm
  * @param {VirtualMachine} vm - The scratch vm
@@ -122,15 +123,20 @@ export default function (vm) {
                     if (vm.runtime.targets[targetId] === vm.editingTarget) {
                         continue;
                     }
-                    if (vm.runtime.targets[targetId].sprite.name.includes("Cylinder"))
+
+                    if (defaultProjectId === '322226535' && vm.runtime.targets[targetId].sprite.name.includes("Cylinder"))
                     {
-                        console.log(vm.runtime.targets[targetId].sprite.name);
+                        //console.log(vm.runtime.targets[targetId].sprite.name);
                         // eslint-disable-next-line max-len
+                        sprites.push([vm.runtime.targets[targetId].sprite.name, vm.runtime.targets[targetId].sprite.name]);
+                    }
+                    else if (defaultProjectId === '321147033') {
                         sprites.push([vm.runtime.targets[targetId].sprite.name, vm.runtime.targets[targetId].sprite.name]);
                     }
                 }
             }
         }
+
         return sprites;
     };
 

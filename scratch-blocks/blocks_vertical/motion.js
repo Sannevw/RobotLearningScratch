@@ -641,7 +641,7 @@ Blockly.Blocks['motion_gridmove'] = {
  }
 };
 
-Blockly.Blocks['motion_of'] = {
+Blockly.Blocks['motion_mof'] = {
   /**
    * Block to report properties of sprites.
    * @this Blockly.Block
@@ -662,7 +662,7 @@ Blockly.Blocks['motion_of'] = {
           "name": "OBJECT"
         }
       ],
-      "output": true,
+      //"output": true,
       "category": Blockly.Categories.motion,
       //"outputShape": Blockly.OUTPUT_SHAPE_ROUND,
       "extensions": ["colours_motion", "shape_statement"]

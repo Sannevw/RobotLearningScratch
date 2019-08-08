@@ -161,7 +161,7 @@ const motion = function (isStage, targetId) {
 				</shadow>
 			</value>
 		</block>
-		<block id="of" type="motion_of">
+		<block id="mof" type="motion_mof">
 			<value name="PROPERTY">
 				<shadow id="sensing_of_object_menu" 
 				type="sensing_of_object_menu"/>

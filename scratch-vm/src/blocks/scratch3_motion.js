@@ -10,7 +10,7 @@ const StageLayering = require('../engine/stage-layering');
 
 const s3Looks = require('./scratch3_looks');
 const s3Sens = require('./scratch3_sensing');
-//const s3Events = require('./scratch3_events');
+// const s3Events = require('./scratch3_events');
 
 class Scratch3MotionBlocks {
     constructor (runtime) {
@@ -21,7 +21,7 @@ class Scratch3MotionBlocks {
         this.runtime = runtime;
         this.Sens = new s3Sens(this.runtime);
         this.Looks = new s3Looks(this.runtime);
-		//this.Events = new s3Events(this.runtime);
+        // this.Events = new s3Events(this.runtime);
     }
 
     /**
@@ -48,12 +48,12 @@ class Scratch3MotionBlocks {
             motion_xposition: this.getX,
             motion_yposition: this.getY,
             motion_direction: this.getDirection,
-	          motion_movespin: this.moveSpin,
-	          motion_gridmove: this.gridMove,
+	        motion_movespin: this.moveSpin,
+	        motion_gridmove: this.gridMove,
             motion_pickobject: this.pickObject,
             motion_right: this.right,
             motion_left: this.left,
-			motion_of: this.pickAndPlace,
+            motion_mof: this.pickAndPlace,
             // Legacy no-op blocks:
             motion_scroll_right: () => {},
             motion_scroll_up: () => {},
@@ -304,122 +304,116 @@ class Scratch3MotionBlocks {
     }
 
     moveSpin (args, util) {
-      const steps = Cast.toNumber(args.STEPS*100);
-      const radians = MathUtil.degToRad(90 - util.target.direction);
-      const dx = steps * Math.cos(radians);
-      const dy = steps * Math.sin(radians);
-      const direction = util.target.direction;
-      util.target.setXY(util.target.x + dx, util.target.y + dy);
-      util.target.setDirection(90-direction);
+        const steps = Cast.toNumber(args.STEPS * 100);
+        const radians = MathUtil.degToRad(90 - util.target.direction);
+        const dx = steps * Math.cos(radians);
+        const dy = steps * Math.sin(radians);
+        const direction = util.target.direction;
+        util.target.setXY(util.target.x + dx, util.target.y + dy);
+        util.target.setDirection(90 - direction);
     }
 
     gridMove (args, util) {
-      if(typeof util.stackFrame.loopCounter === 'undefined'){
-        const squares = Cast.toNumber(args.STEPS);
-        util.stackFrame.loopCounter = squares;
-      }
+        if (typeof util.stackFrame.loopCounter === 'undefined'){
+            const squares = Cast.toNumber(args.STEPS);
+            util.stackFrame.loopCounter = squares;
+        }
 
 
-      const red = {COLOR: '#FF0000'};
-      const green = {COLOR: '#49BC00'};
-      const blue = {COLOR: '#0010F5'};
+        const red = {COLOR: '#FF0000'};
+        const green = {COLOR: '#49BC00'};
+        const blue = {COLOR: '#0010F5'};
 
-      if(util.stackFrame.loopCounter <= 0){
-        return;
-      }
+        if (util.stackFrame.loopCounter <= 0){
+            return;
+        }
 
-      if(typeof util.stackFrame.index === 'undefined'){
-        util.stackFrame.index = 0;
-      }
+        if (typeof util.stackFrame.index === 'undefined'){
+            util.stackFrame.index = 0;
+        }
 
 
-//      let Sens = new s3Sens(this.runtime);
+        //      let Sens = new s3Sens(this.runtime);
 
-      if(this.Sens.touchingColor(red, util) || this.Sens.touchingColor(blue, util) || this.Sens.touchingColor(green, util)){
-        //let Looks = new s3Looks(this.runtime);
-        this.Looks.sayforsecs({MESSAGE: "I can't go there!", SECS: 3}, util);
-        if (util.stackTimerNeedsInit()) {
-            const duration = 3000;
-            util.startStackTimer(duration);
-            this.runtime.requestRedraw();
-            util.yield();
-        } else if (!util.stackTimerFinished()) {
+        if (this.Sens.touchingColor(red, util) || this.Sens.touchingColor(blue, util) || this.Sens.touchingColor(green, util)){
+        // let Looks = new s3Looks(this.runtime);
+            this.Looks.sayforsecs({MESSAGE: "I can't go there!", SECS: 3}, util);
+            if (util.stackTimerNeedsInit()) {
+                const duration = 3000;
+                util.startStackTimer(duration);
+                this.runtime.requestRedraw();
+                util.yield();
+            } else if (!util.stackTimerFinished()) {
+                util.yield();
+            } else {
+                util.stopAll();
+            }
+        } else if (util.stackFrame.index < 47){
+            util.stackFrame.index++;
+            this.moveSteps({STEPS: 1}, util);
             util.yield();
         } else {
-            util.stopAll();
+            this.moveSteps({STEPS: 1}, util);
+            util.stackFrame.loopCounter--;
+            util.stackFrame.index = 0;
+            util.yield();
         }
-      }else if(util.stackFrame.index<47){
-        util.stackFrame.index ++;
-        this.moveSteps({STEPS: 1}, util);
-        util.yield();
-      }
-      else{
-        this.moveSteps({STEPS: 1}, util);
-        util.stackFrame.loopCounter--;
-        util.stackFrame.index = 0;
-        util.yield();
-      }
 
 
     }
 
-    pickObject(args, util){
+    pickObject (args, util){
 	  console.log(this.runtime._editingTarget.sprite.name);
 
-      if(this.Sens.touchingObject({TOUCHINGOBJECTMENU: 'news'}, util)){
+        if (this.Sens.touchingObject({TOUCHINGOBJECTMENU: 'news'}, util)){
 
-        //let Event = new s3Event(this.runtime);
-        //Event.broadcast({BROADCAST_OPTION.name: 'pick_up', BROADCAST_OPTION.id: 'j(bq%qx3[]JbP+2aWaM_'}, util);
-        util.startHats('event_whenbroadcastreceived', {
-            BROADCAST_OPTION: 'news_picked'
-        });
-        console.log("news picked? ");
-        this.Looks.sayforsecs({MESSAGE: 'Picked up the newspaper', SECS: 3}, util);
-		//this.Looks.broadcast({BROADCAST_OPTION.name: 'news_picked'}, util);
-      }else{0
-  		console.log("message:", Cast.toString(args.OBJECT));
-		if(args.OBJECT !== '') {
-        //let Looks = new s3Looks(this.runtime);
-        this.Looks.sayforsecs({MESSAGE: 'There is no ' + Cast.toString(args.OBJECT) + ' to pick up here.', SECS: 3}, util);
-		}
-		else{
-			this.Looks.sayforsecs({MESSAGE: 'Specify which object you want me to pick up here.', SECS: 3}, util);
-		}
-      }
+            // let Event = new s3Event(this.runtime);
+            // Event.broadcast({BROADCAST_OPTION.name: 'pick_up', BROADCAST_OPTION.id: 'j(bq%qx3[]JbP+2aWaM_'}, util);
+            util.startHats('event_whenbroadcastreceived', {
+                BROADCAST_OPTION: 'news_picked'
+            });
+            console.log('news picked? ');
+            this.Looks.sayforsecs({MESSAGE: 'Picked up the newspaper', SECS: 3}, util);
+            // this.Looks.broadcast({BROADCAST_OPTION.name: 'news_picked'}, util);
+        } else {
+            0;
+  		console.log('message:', Cast.toString(args.OBJECT));
+            if (args.OBJECT !== '') {
+                // let Looks = new s3Looks(this.runtime);
+                this.Looks.sayforsecs({MESSAGE: `There is no ${Cast.toString(args.OBJECT)} to pick up here.`, SECS: 3}, util);
+            } else {
+                this.Looks.sayforsecs({MESSAGE: 'Specify which object you want me to pick up here.', SECS: 3}, util);
+            }
+        }
 
 
     }
 
     pickAndPlace (args, util) {
-		console.log("HI");
+        console.log('HI');
 
         let pickTarget;
-		let placeTarget;
+        let placeTarget;
 
 
         if (args.OBJECT != args.PROPERTY) {
             pickTarget = Cast.toString(args.PROPERTY);
-			placeTarget = Cast.toString(args.OBJECT);
-            //pickTarget = this.runtime.getSpriteTargetByName(args.PROPERTY);
-            //placeTarget = this.runtime.getSpriteTargetByName(args.OBJECT);
-            console.log("put this: ", args.PROPERTY);
-            console.log("on: ", placeTarget);
-            var message1 = pickTarget+'_'+placeTarget;
+            placeTarget = Cast.toString(args.OBJECT);
+            // pickTarget = this.runtime.getSpriteTargetByName(args.PROPERTY);
+            // placeTarget = this.runtime.getSpriteTargetByName(args.OBJECT);
+            console.log('put this: ', args.PROPERTY);
+            console.log('on: ', placeTarget);
+            const message1 = `${pickTarget}_${placeTarget}`;
             util.startHats('event_whenbroadcastreceived', {
-                    BROADCAST_OPTION: message1
+                BROADCAST_OPTION: message1
             });
-            console.log("msg: ", message1);
+            console.log('msg: ', message1);
         } else {
-            console.log("same object");
+            console.log('same object');
             this.Looks.sayforsecs({MESSAGE: 'I cannot stack object onto themselves.', SECS: 3}, util);
         }
-
-        // attrTarget can be undefined if the target does not exist
-        // (e.g. single sprite uploaded from larger project referencing
-        // another sprite that wasn't uploaded)
         if (!pickTarget) return 0;
         if (!placeTarget) return 0;
-
     }
 
 

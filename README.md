@@ -162,3 +162,43 @@ In scratch-gui\src\lib\blocks.js
             }
         }
  ```
+
+## smaller workspace
+
+C:\Users\sanne\Documents\PhD\Scratch_project\RobotLearningScratch\scratch-gui\src\components\gui\gui.css
+
+.editor-wrapper {
+    flex-basis: 600px;
+    flex-grow: 0.5;
+    flex-shrink: 0;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+## bigger stage 
+
+scratch-gui\lib\layout-constant.js - changed to 1.7 instead of 1
+
+STAGE_DISPLAY_SCALES[STAGE_DISPLAY_SIZES.large] = 1.7 // large mode, wide browser (standard)
+
+
+
+## remove some components from webpage gui
+
+scratch-gui\src\components\gui.jsx
+
+commented out backpack and targetWrapper
+
+```javascript
+                            {/*<Box className={styles.targetWrapper}>*/}
+                            {/*    <TargetPane*/}
+                            {/*        stageSize={stageSize}*/}
+                            {/*        vm={vm}*/}
+                            {/*    />*/}
+                            {/*</Box>*/}
+ ```
+

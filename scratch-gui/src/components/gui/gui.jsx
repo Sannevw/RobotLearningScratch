@@ -321,9 +321,9 @@ const GUIComponent = props => {
                                     {soundsTabVisible ? <SoundTab vm={vm} /> : null}
                                 </TabPanel>
                             </Tabs>
-                            {backpackVisible ? (
-                                <Backpack host={backpackHost} />
-                            ) : null}
+                            {/*{backpackVisible ? (*/}
+                            {/*    <Backpack host={backpackHost} />*/}
+                            {/*) : null}*/}
                         </Box>
 
                         <Box className={classNames(styles.stageAndTargetWrapper, styles[stageSize])}>
@@ -333,12 +333,12 @@ const GUIComponent = props => {
                                 stageSize={stageSize}
                                 vm={vm}
                             />
-                            <Box className={styles.targetWrapper}>
-                                <TargetPane
-                                    stageSize={stageSize}
-                                    vm={vm}
-                                />
-                            </Box>
+                            {/*<Box className={styles.targetWrapper}>*/}
+                            {/*    <TargetPane*/}
+                            {/*        stageSize={stageSize}*/}
+                            {/*        vm={vm}*/}
+                            {/*    />*/}
+                            {/*</Box>*/}
                         </Box>
                     </Box>
                 </Box>

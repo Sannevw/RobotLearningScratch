@@ -154,13 +154,13 @@ const motion = function (isStage, targetId) {
             </value>
         </block>
         ${blockSeparator}
-		<block type="motion_pickobject">
-			<value name="OBJECT">
-				<shadow type="math_number">
-					<field name="NUM"/>
-				</shadow>
-			</value>
-		</block>
+<!--		<block type="motion_pickobject">-->
+<!--			<value name="OBJECT">-->
+<!--				<shadow type="math_number">-->
+<!--					<field name="NUM"/>-->
+<!--				</shadow>-->
+<!--			</value>-->
+<!--		</block>-->
 		<block id="mof" type="motion_mof">
 			<value name="PROPERTY">
 				<shadow id="sensing_of_object_menu" 
@@ -171,6 +171,7 @@ const motion = function (isStage, targetId) {
 				type="sensing_of_object_menu"/> //only works with sensing, i give up trying to change this
 			</value>
 		</block>
+		<block type="motion_charge"/>
 		<block type="motion_left"/>
         <block type="motion_right"/> `}
         ${categorySeparator}
@@ -452,6 +453,11 @@ const control = function (isStage) {
         <block type="control_if_else"/>
         <block id="wait_until" type="control_wait_until"/>
         <block id="repeat_until" type="control_repeat_until"/>
+<!--        <block id="repeat_until_charged" type="control_repeat_until_charged">-->
+        <value name="CONDITION">
+        <shadow id="control_varpicker" type="control_varpicker"/>
+        </value>
+        </block>
         ${blockSeparator}
         <block type="control_stop"/>
         ${blockSeparator}

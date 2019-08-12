@@ -168,7 +168,7 @@ class Scratch3SensingBlocks {
     }
 
     touchingObject (args, util) {
-      console.log(Cast.toString(args.TOUCHINGOBJECTMENU));
+      //console.log(Cast.toString(args.TOUCHINGOBJECTMENU));
         return util.target.isTouchingObject(args.TOUCHINGOBJECTMENU);
     }
 
@@ -287,7 +287,7 @@ class Scratch3SensingBlocks {
         } else {
             args.OBJECT = Cast.toString(args.OBJECT);
             attrTarget = this.runtime.getSpriteTargetByName(args.OBJECT);
-			
+
 			console.log("sprite by name: ", attrTarget);
         }
 

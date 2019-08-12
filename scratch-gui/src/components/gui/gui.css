@@ -35,7 +35,7 @@
 
 .editor-wrapper {
     flex-basis: 600px;
-    flex-grow: 1;
+    flex-grow: 0.5;
     flex-shrink: 0;
     position: relative;
 
@@ -216,7 +216,7 @@
 
 .target-wrapper {
     display: flex;
-    flex-grow: 1;
+    flex-grow: 0;
     flex-basis: 0;
 
     padding-top: $space;

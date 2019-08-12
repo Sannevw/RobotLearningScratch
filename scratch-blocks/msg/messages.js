@@ -55,6 +55,8 @@ Blockly.Msg.CONTROL_COUNTER = 'counter';
 Blockly.Msg.CONTROL_INCRCOUNTER = 'increment counter';
 Blockly.Msg.CONTROL_CLEARCOUNTER = 'clear counter';
 Blockly.Msg.CONTROL_ALLATONCE = 'all at once';
+Blockly.Msg.CONTROL_CHARGE = 'repeat until charged %1';
+
 
 // Data blocks
 Blockly.Msg.DATA_SETVARIABLETO = 'set %1 to %2';
@@ -182,10 +184,10 @@ Blockly.Msg.MOTION_STAGE_SELECTED = 'Stage selected: no motion blocks';
 Blockly.Msg.MOTION_MOVESPIN = 'move %1 steps and spin';
 Blockly.Msg.MOTION_GRIDMOVE = 'move %1 step forward';
 Blockly.Msg.MOTION_PICKOBJECT = 'pick up %1';
+Blockly.Msg.MOTION_CHARGE = 'Charge battery %1';
 Blockly.Msg.MOTION_LEFT = 'turn to the left %1';
 Blockly.Msg.MOTION_RIGHT = 'turn to the right %1';
 Blockly.Msg.MOTION_OF = 'pick up %1 and place on %2';
-Blockly.Msg.MOTION_PICKANDPLACE_COSTUMENAME = 'costume name';
 
 // Operators blocks
 Blockly.Msg.OPERATORS_ADD = '%1 + %2';

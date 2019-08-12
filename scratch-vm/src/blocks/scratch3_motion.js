@@ -10,6 +10,7 @@ const StageLayering = require('../engine/stage-layering');
 
 const s3Looks = require('./scratch3_looks');
 const s3Sens = require('./scratch3_sensing');
+const s3Control = require('./scratch3_control');
 // const s3Events = require('./scratch3_events');
 
 class Scratch3MotionBlocks {
@@ -21,6 +22,7 @@ class Scratch3MotionBlocks {
         this.runtime = runtime;
         this.Sens = new s3Sens(this.runtime);
         this.Looks = new s3Looks(this.runtime);
+        this.Control = new s3Control(this.runtime);
         // this.Events = new s3Events(this.runtime);
     }
 
@@ -53,6 +55,7 @@ class Scratch3MotionBlocks {
             motion_pickobject: this.pickObject,
             motion_right: this.right,
             motion_left: this.left,
+            motion_charge: this.charge,
             motion_mof: this.pickAndPlace,
             // Legacy no-op blocks:
             motion_scroll_right: () => {},
@@ -427,6 +430,25 @@ class Scratch3MotionBlocks {
         util.target.setDirection(util.target.direction - degrees);
     }
 
+    charge (args, util) {
+        if (this.Sens.touchingObject({TOUCHINGOBJECTMENU: 'charging station'}, util)){
+            util.startHats('event_whenbroadcastreceived', {
+                BROADCAST_OPTION: 'charging'
+            });
+            this.Looks.sayforsecs({MESSAGE: 'Charging..', SECS: 1}, util);
+            //this.Control.wait({DURATION: '5'}, util);
+        }
+        else {
+            this.Looks.sayforsecs({MESSAGE: 'I am not at my charging station.', SECS: 5}, util);
+            util.startHats('event_whenbroadcastreceived', {
+                BROADCAST_OPTION: 'startpos'
+            });
+        }
+       // this.Control.wait({DURATION: '5'}, util);
+       // util.startHats('event_whenbroadcastreceived', {
+       //      BROADCAST_OPTION: 'charged'
+       //  });
+    }
 }
 
 module.exports = Scratch3MotionBlocks;

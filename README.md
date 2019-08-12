@@ -140,7 +140,7 @@ const messages = defineMessages({
 });
 ```
 ## [HACKY] dropdown menu with only the object/sprite of choice
-In C:\Users\sanne\Documents\PhD\Scratch_project\RobotLearningScratch\scratch-gui\src\lib\blocks.js
+In scratch-gui\src\lib\blocks.js
 
 ```javascript
     const spriteMenu = function () {

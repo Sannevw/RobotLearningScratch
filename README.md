@@ -139,3 +139,26 @@ const messages = defineMessages({
     }
 });
 ```
+## [HACKY] dropdown menu with only the object/sprite of choice
+In C:\Users\sanne\Documents\PhD\Scratch_project\RobotLearningScratch\scratch-gui\src\lib\blocks.js
+
+```javascript
+    const spriteMenu = function () {
+        const sprites = [];
+        for (const targetId in vm.runtime.targets) {
+            if (!vm.runtime.targets.hasOwnProperty(targetId)) continue;
+            if (vm.runtime.targets[targetId].isOriginal) {
+                if (!vm.runtime.targets[targetId].isStage) {
+                    if (vm.runtime.targets[targetId] === vm.editingTarget) {
+                        continue;
+                    }
+
+                    if (defaultProjectId === 'YOUR_PROJECT_ID' && vm.runtime.targets[targetId].sprite.name.includes("OBJECT_OF_CHOICE"))
+                    {
+                        sprites.push([vm.runtime.targets[targetId].sprite.name, vm.runtime.targets[targetId].sprite.name]);
+                    }
+                    ...
+                }
+            }
+        }
+ ```

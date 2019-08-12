@@ -165,18 +165,20 @@ In scratch-gui\src\lib\blocks.js
 
 ## smaller workspace
 
-C:\Users\sanne\Documents\PhD\Scratch_project\RobotLearningScratch\scratch-gui\src\components\gui\gui.css
+scratch-gui\src\components\gui\gui.css
 
+
+```javascript
 .editor-wrapper {
     flex-basis: 600px;
-    flex-grow: 0.5;
+    flex-grow: 0.5; /*set this 0.5 instead of 1*/
     flex-shrink: 0;
     position: relative;
 
     display: flex;
     flex-direction: column;
 }
-
+```
 
 
 ## bigger stage 

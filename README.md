@@ -168,7 +168,7 @@ In scratch-gui\src\lib\blocks.js
 scratch-gui\src\components\gui\gui.css
 
 
-```javascript
+```CSS
 .editor-wrapper {
     flex-basis: 600px;
     flex-grow: 0.5; /*set this 0.5 instead of 1*/
@@ -185,8 +185,9 @@ scratch-gui\src\components\gui\gui.css
 
 scratch-gui\lib\layout-constant.js - changed to 1.7 instead of 1
 
+```CSS
 STAGE_DISPLAY_SCALES[STAGE_DISPLAY_SIZES.large] = 1.7 // large mode, wide browser (standard)
-
+```
 
 
 ## remove some components from webpage gui

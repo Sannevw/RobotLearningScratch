@@ -132,20 +132,20 @@ const motion = function (isStage, targetId) {
                 </shadow>
             </value>
         </block> */ `
-        <block type="motion_turnright">
-            <value name="DEGREES">
-                <shadow type="math_number">
-                    <field name="NUM">15</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="motion_turnleft">
-            <value name="DEGREES">
-                <shadow type="math_number">
-                    <field name="NUM">15</field>
-                </shadow>
-            </value>
-        </block>
+<!--        <block type="motion_turnright">-->
+<!--            <value name="DEGREES">-->
+<!--                <shadow type="math_number">-->
+<!--                    <field name="NUM">15</field>-->
+<!--                </shadow>-->
+<!--            </value>-->
+<!--        </block>-->
+<!--        <block type="motion_turnleft">-->
+<!--            <value name="DEGREES">-->
+<!--                <shadow type="math_number">-->
+<!--                    <field name="NUM">15</field>-->
+<!--                </shadow>-->
+<!--            </value>-->
+<!--        </block>-->
 	<block type="motion_gridmove">
             <value name="STEPS">
                 <shadow type="math_number">
@@ -161,16 +161,16 @@ const motion = function (isStage, targetId) {
 <!--				</shadow>-->
 <!--			</value>-->
 <!--		</block>-->
-		<block id="mof" type="motion_mof">
-			<value name="PROPERTY">
-				<shadow id="sensing_of_object_menu" 
-				type="sensing_of_object_menu"/>
-			</value>
-			<value name="OBJECT">
-				<shadow id="sensing_of_object_menu" 
-				type="sensing_of_object_menu"/> //only works with sensing, i give up trying to change this
-			</value>
-		</block>
+<!--		<block id="mof" type="motion_mof">-->
+<!--			<value name="PROPERTY">-->
+<!--				<shadow id="sensing_of_object_menu" -->
+<!--				type="sensing_of_object_menu"/>-->
+<!--			</value>-->
+<!--			<value name="OBJECT">-->
+<!--				<shadow id="sensing_of_object_menu" -->
+<!--				type="sensing_of_object_menu"/> //only works with sensing, i give up trying to change this-->
+<!--			</value>-->
+<!--		</block>-->
 		<block type="motion_charge"/>
 		<block type="motion_left"/>
         <block type="motion_right"/> `}
@@ -388,18 +388,18 @@ const events = function (isStage) {
     <category name="%{BKY_CATEGORY_EVENTS}" id="events" colour="#FFD500" secondaryColour="#CC9900">
         <block type="event_whenflagclicked"/>
 
-        <block type="event_whenbroadcastreceived">
-        </block>
-        <block type="event_broadcast">
-            <value name="BROADCAST_INPUT">
-                <shadow type="event_broadcast_menu"></shadow>
-            </value>
-        </block>
-        <block type="event_broadcastandwait">
-            <value name="BROADCAST_INPUT">
-              <shadow type="event_broadcast_menu"></shadow>
-            </value>
-        </block>
+<!--        <block type="event_whenbroadcastreceived">-->
+<!--        </block>-->
+<!--        <block type="event_broadcast">-->
+<!--            <value name="BROADCAST_INPUT">-->
+<!--                <shadow type="event_broadcast_menu"></shadow>-->
+<!--            </value>-->
+<!--        </block>-->
+<!--        <block type="event_broadcastandwait">-->
+<!--            <value name="BROADCAST_INPUT">-->
+<!--              <shadow type="event_broadcast_menu"></shadow>-->
+<!--            </value>-->
+<!--        </block>-->
         ${categorySeparator}
     </category>
     `;

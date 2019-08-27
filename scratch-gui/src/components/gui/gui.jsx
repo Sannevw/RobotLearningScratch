@@ -247,42 +247,43 @@ const GUIComponent = props => {
                                             id="gui.gui.codeTab"
                                         />
                                     </Tab>
-                                    <Tab
-                                        className={tabClassNames.tab}
-                                        onClick={onActivateCostumesTab}
-                                    >
-                                        <img
-                                            draggable={false}
-                                            src={costumesIcon}
-                                        />
-                                        {targetIsStage ? (
-                                            <FormattedMessage
-                                                defaultMessage="Backdrops"
-                                                description="Button to get to the backdrops panel"
-                                                id="gui.gui.backdropsTab"
-                                            />
-                                        ) : (
-                                            <FormattedMessage
-                                                defaultMessage="Costumes"
-                                                description="Button to get to the costumes panel"
-                                                id="gui.gui.costumesTab"
-                                            />
-                                        )}
-                                    </Tab>
-                                    <Tab
-                                        className={tabClassNames.tab}
-                                        onClick={onActivateSoundsTab}
-                                    >
-                                        <img
-                                            draggable={false}
-                                            src={soundsIcon}
-                                        />
-                                        <FormattedMessage
-                                            defaultMessage="Sounds"
-                                            description="Button to get to the sounds panel"
-                                            id="gui.gui.soundsTab"
-                                        />
-                                    </Tab>
+
+                                    {/*<Tab*/}
+                                    {/*    className={tabClassNames.tab}*/}
+                                    {/*    onClick={onActivateCostumesTab}*/}
+                                    {/*>*/}
+                                    {/*    <img*/}
+                                    {/*        draggable={false}*/}
+                                    {/*        src={costumesIcon}*/}
+                                    {/*    />*/}
+                                    {/*    {targetIsStage ? (*/}
+                                    {/*        <FormattedMessage*/}
+                                    {/*            defaultMessage="Backdrops"*/}
+                                    {/*            description="Button to get to the backdrops panel"*/}
+                                    {/*            id="gui.gui.backdropsTab"*/}
+                                    {/*        />*/}
+                                    {/*    ) : (*/}
+                                    {/*        <FormattedMessage*/}
+                                    {/*            defaultMessage="Costumes"*/}
+                                    {/*            description="Button to get to the costumes panel"*/}
+                                    {/*            id="gui.gui.costumesTab"*/}
+                                    {/*        />*/}
+                                    {/*    )}*/}
+                                    {/*</Tab>*/}
+                                    {/*<Tab*/}
+                                    {/*    className={tabClassNames.tab}*/}
+                                    {/*    onClick={onActivateSoundsTab}*/}
+                                    {/*>*/}
+                                    {/*    <img*/}
+                                    {/*        draggable={false}*/}
+                                    {/*        src={soundsIcon}*/}
+                                    {/*    />*/}
+                                    {/*    <FormattedMessage*/}
+                                    {/*        defaultMessage="Sounds"*/}
+                                    {/*        description="Button to get to the sounds panel"*/}
+                                    {/*        id="gui.gui.soundsTab"*/}
+                                    {/*    />*/}
+                                    {/*</Tab>*/}
                                 </TabList>
                                 <TabPanel className={tabClassNames.tabPanel}>
                                     <Box className={styles.blocksWrapper}>
@@ -297,19 +298,19 @@ const GUIComponent = props => {
                                             vm={vm}
                                         />
                                     </Box>
-                                    <Box className={styles.extensionButtonContainer}>
-                                        <button
-                                            className={styles.extensionButton}
-                                            title={intl.formatMessage(messages.addExtension)}
-                                            onClick={onExtensionButtonClick}
-                                        >
-                                            <img
-                                                className={styles.extensionButtonIcon}
-                                                draggable={false}
-                                                src={addExtensionIcon}
-                                            />
-                                        </button>
-                                    </Box>
+                                    {/*<Box className={styles.extensionButtonContainer}>*/}
+                                    {/*    <button*/}
+                                    {/*        className={styles.extensionButton}*/}
+                                    {/*        title={intl.formatMessage(messages.addExtension)}*/}
+                                    {/*        onClick={onExtensionButtonClick}*/}
+                                    {/*    >*/}
+                                    {/*        <img*/}
+                                    {/*            className={styles.extensionButtonIcon}*/}
+                                    {/*            draggable={false}*/}
+                                    {/*            src={addExtensionIcon}*/}
+                                    {/*        />*/}
+                                    {/*    </button>*/}
+                                    {/*</Box>*/}
                                     <Box className={styles.watermark}>
                                         <Watermark />
                                     </Box>
@@ -333,6 +334,25 @@ const GUIComponent = props => {
                                 stageSize={stageSize}
                                 vm={vm}
                             />
+                            <div>
+                            <div style={{paddingLeft: '50px','fontSize': '30px', width:'1000px'}}>Instructions. </div>
+                            </div>
+                            <div>
+                                <div style={{paddingLeft: '50px','fontSize': '20px', width:'1000px'}}>Create a program that: 1) makes Cozmo the robot move to its charging station,
+                                    2) charge its battery, and 3) move back to the living room.
+                                </div>
+                            </div>
+                            <div>
+                                <div style={{paddingLeft: '50px','fontSize': '20px', width:'1000px'}}>You can drag and drop actions from the
+                                    menu on the left, drag them to the 'When Green Flag Clicked' block. When you click the green Flag (next to the Red Stop sign)
+                                    the program should make the robot do all 3 steps in that one click. </div>
+                            </div>
+                            <div>
+                                <div style={{paddingLeft: '50px','fontSize': '20px', width:'1000px'}}>
+                                    If the program is not correct, don't worry. Just click retry! </div>
+                            </div>
+
+
                             {/*<Box className={styles.targetWrapper}>*/}
                             {/*    <TargetPane*/}
                             {/*        stageSize={stageSize}*/}

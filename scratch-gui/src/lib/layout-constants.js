@@ -38,13 +38,13 @@ const STAGE_DISPLAY_SIZES = keyMirror({
 });
 
 const STAGE_DISPLAY_SCALES = {};
-STAGE_DISPLAY_SCALES[STAGE_DISPLAY_SIZES.large] = 1.7 // large mode, wide browser (standard)
+STAGE_DISPLAY_SCALES[STAGE_DISPLAY_SIZES.large] = 1; // large mode, wide browser (standard)
 STAGE_DISPLAY_SCALES[STAGE_DISPLAY_SIZES.largeConstrained] = 0.85; // large mode but narrow browser
 STAGE_DISPLAY_SCALES[STAGE_DISPLAY_SIZES.small] = 0.5; // small mode, regardless of browser size
 
 export default {
-    standardStageWidth: 600,
-    standardStageHeight: 480,
+    standardStageWidth: 480,
+    standardStageHeight: 360,
     fullSizeMinWidth: 1096,
     fullSizePaintMinWidth: 1250
 };

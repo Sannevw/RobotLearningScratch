@@ -36,14 +36,12 @@
 
 .editor-wrapper {
     flex-basis: 600px;
-    flex-grow: 0.5;
+    flex-grow: 1;
     flex-shrink: 0;
     position: relative;
+
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
 
 }
 
@@ -225,7 +223,7 @@
 
 .target-wrapper {
     display: flex;
-    flex-grow: 0;
+    flex-grow: 1;
     flex-basis: 0;
 
     padding-top: $space;

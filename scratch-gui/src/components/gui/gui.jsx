@@ -335,20 +335,20 @@ const GUIComponent = props => {
                                 vm={vm}
                             />
                             <div>
-                            <div style={{paddingLeft: '50px','fontSize': '30px', width:'1000px'}}>Instructions. </div>
+                            <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Instructions. </div>
                             </div>
                             <div>
-                                <div style={{paddingLeft: '50px','fontSize': '20px', width:'1000px'}}>Create a program that: 1) makes Cozmo the robot move to its charging station,
+                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Create a program that: 1) makes Cozmo the robot move to its charging station,
                                     2) charge its battery, and 3) move back to the living room.
                                 </div>
                             </div>
                             <div>
-                                <div style={{paddingLeft: '50px','fontSize': '20px', width:'1000px'}}>You can drag and drop actions from the
+                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>You can drag and drop actions from the
                                     menu on the left, drag them to the 'When Green Flag Clicked' block. When you click the green Flag (next to the Red Stop sign)
                                     the program should make the robot do all 3 steps in that one click. </div>
                             </div>
                             <div>
-                                <div style={{paddingLeft: '50px','fontSize': '20px', width:'1000px'}}>
+                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>
                                     If the program is not correct, don't worry. Just click retry! </div>
                             </div>
 

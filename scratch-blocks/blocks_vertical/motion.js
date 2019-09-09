@@ -663,7 +663,7 @@ Blockly.Blocks['motion_charge'] = {
   }
 };
 
-Blockly.Blocks['motion_mof'] = {
+Blockly.Blocks['motion_of'] = {
   /**
    * Block to report properties of sprites.
    * @this Blockly.Block

@@ -56,7 +56,7 @@ class Scratch3MotionBlocks {
             motion_right: this.right,
             motion_left: this.left,
             motion_charge: this.charge,
-            motion_mof: this.pickAndPlace,
+            motion_of: this.pickAndPlace,
             // Legacy no-op blocks:
             motion_scroll_right: () => {},
             motion_scroll_up: () => {},

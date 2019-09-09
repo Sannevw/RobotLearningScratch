@@ -146,34 +146,22 @@ const motion = function (isStage, targetId) {
 <!--                </shadow>-->
 <!--            </value>-->
 <!--        </block>-->
-	<block type="motion_gridmove">
-            <value name="STEPS">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
+<!--	<block type="motion_gridmove">-->
+<!--            <value name="STEPS">-->
+<!--                <shadow type="math_number">-->
+<!--                    <field name="NUM">1</field>-->
+<!--                </shadow>-->
+<!--            </value>-->
+<!--        </block>-->
+        ${blockSeparator}
+        <block id="of" type="motion_of">
+            <value name="PROPERTY">
+            <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>
             </value>
         </block>
-        ${blockSeparator}
-<!--		<block type="motion_pickobject">-->
-<!--			<value name="OBJECT">-->
-<!--				<shadow type="math_number">-->
-<!--					<field name="NUM"/>-->
-<!--				</shadow>-->
-<!--			</value>-->
-<!--		</block>-->
-<!--		<block id="mof" type="motion_mof">-->
-<!--			<value name="PROPERTY">-->
-<!--				<shadow id="sensing_of_object_menu" -->
-<!--				type="sensing_of_object_menu"/>-->
-<!--			</value>-->
-<!--			<value name="OBJECT">-->
-<!--				<shadow id="sensing_of_object_menu" -->
-<!--				type="sensing_of_object_menu"/> //only works with sensing, i give up trying to change this-->
-<!--			</value>-->
-<!--		</block>-->
-		<block type="motion_charge"/>
-		<block type="motion_left"/>
-        <block type="motion_right"/> `}
+<!--		<block type="motion_charge"/>-->
+<!--		<block type="motion_left"/>-->
+<!--        <block type="motion_right"/>--> `}
         ${categorySeparator}
     </category>
     `;
@@ -386,7 +374,7 @@ const sound = function (isStage, targetId, soundName) {
 const events = function (isStage) {
     return `
     <category name="%{BKY_CATEGORY_EVENTS}" id="events" colour="#FFD500" secondaryColour="#CC9900">
-        <block type="event_whenflagclicked"/>
+<!--        <block type="event_whenflagclicked"/>-->
 
 <!--        <block type="event_whenbroadcastreceived">-->
 <!--        </block>-->
@@ -432,34 +420,29 @@ ${blockSeparator}
 const control = function (isStage) {
     return `
     <category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#FFAB19" secondaryColour="#CF8B17">
-        <block type="control_wait">
-            <value name="DURATION">
-                <shadow type="math_positive_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-        </block>
+<!--        <block type="control_wait">-->
+<!--            <value name="DURATION">-->
+<!--                <shadow type="math_positive_number">-->
+<!--                    <field name="NUM">1</field>-->
+<!--                </shadow>-->
+<!--            </value>-->
+<!--        </block>-->
+             ${blockSeparator}
+<!--        // <block type="control_repeat">-->
+<!--        //     <value name="TIMES">-->
+<!--        //         <shadow type="math_whole_number">-->
+<!--        //             <field name="NUM">10</field>-->
+<!--        //         </shadow>-->
+<!--        //     </value>-->
+<!--        // </block>-->
+<!--        <block id="forever" type="control_forever"/>-->
         ${blockSeparator}
-        <block type="control_repeat">
-            <value name="TIMES">
-                <shadow type="math_whole_number">
-                    <field name="NUM">10</field>
-                </shadow>
-            </value>
-        </block>
-        <block id="forever" type="control_forever"/>
-        ${blockSeparator}
-        <block type="control_if"/>
-        <block type="control_if_else"/>
-        <block id="wait_until" type="control_wait_until"/>
-        <block id="repeat_until" type="control_repeat_until"/>
-<!--        <block id="repeat_until_charged" type="control_repeat_until_charged">-->
-        <value name="CONDITION">
-        <shadow id="control_varpicker" type="control_varpicker"/>
-        </value>
-        </block>
-        ${blockSeparator}
-        <block type="control_stop"/>
+<!--        <block type="control_if"/>-->
+<!--        <block type="control_if_else"/>-->
+<!--        <block id="wait_until" type="control_wait_until"/>-->
+<!--        <block id="repeat_until" type="control_repeat_until"/>-->
+<!--        -->${blockSeparator}
+<!--        <block type="control_stop"/>-->
         ${blockSeparator}
 
         ${categorySeparator}
@@ -821,11 +804,11 @@ const makeToolboxXML = function (isStage, targetId, categoriesXML,
         motion(isStage, targetId), gap,
         //looks(isStage, targetId, costumeName, backdropName), gap,
         //sound(isStage, targetId, soundName), gap,
-        events(isStage, targetId), gap,
-        control(isStage, targetId), gap,
+        // events(isStage, targetId), gap,
+        // control(isStage, targetId), gap,
         //sensing(isStage, targetId), gap,
-        operators(isStage, targetId), gap,
-        variables(isStage, targetId)//, gap,
+        //operators(isStage, targetId), gap,
+        //(isStage, targetId)//, gap,
         //myBlocks(isStage, targetId)
     ];
 

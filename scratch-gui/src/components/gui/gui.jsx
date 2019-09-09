@@ -338,18 +338,25 @@ const GUIComponent = props => {
                             <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Instructions. </div>
                             </div>
                             <div>
-                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Create a program that: 1) makes Cozmo the robot move to its charging station,
-                                    2) charge its battery, and 3) move back to the living room.
+                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Create a program that: <br/><br/>1) makes Cozmo the robot stack the green cylinder on the pink cylinder
+                                    <br/><br/> 2) and stack the blue cylinder on the green cylinder.
                                 </div>
                             </div>
                             <div>
-                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>You can drag and drop actions from the
+                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}><br/><br/>You can drag and drop actions from the
                                     menu on the left, drag them to the 'When Green Flag Clicked' block. When you click the green Flag (next to the Red Stop sign)
-                                    the program should make the robot do all 3 steps in that one click. </div>
+                                    the program should make the robot do both 2 steps in that one click.
+                                    <br/><br/>
+                                    NOTE: You are not required to use all available blocks. Just use the ones that you need to complete the task successfully.
+                                    </div>
                             </div>
                             <div>
                                 <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>
-                                    If the program is not correct, don't worry. Just click retry! </div>
+                                    <br/><br/>
+                                    If the program is not correct, just click stop to stop Cozmo, then click retry to reset the robots position, change your blocks and try again!
+                                    You should take maximum 15 minutes to finish the task. If you do not have a successful program after 15 minutes, please still download your project and upload the unfinished program.<br/><br/>
+
+                                Do NOT change any existing code you may find in the Workspace.</div>
                             </div>
 
 

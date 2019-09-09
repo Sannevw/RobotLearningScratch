@@ -56,6 +56,7 @@ Blockly.Msg.CONTROL_INCRCOUNTER = 'increment counter';
 Blockly.Msg.CONTROL_CLEARCOUNTER = 'clear counter';
 Blockly.Msg.CONTROL_ALLATONCE = 'all at once';
 Blockly.Msg.CONTROL_CHARGE = 'repeat until charged %1';
+Blockly.Msg.CONTROL_ELSE_PINK = 'if color of cylinder is pink';
 
 
 // Data blocks
@@ -188,6 +189,9 @@ Blockly.Msg.MOTION_CHARGE = 'Charge battery %1';
 Blockly.Msg.MOTION_LEFT = 'turn to the left %1';
 Blockly.Msg.MOTION_RIGHT = 'turn to the right %1';
 Blockly.Msg.MOTION_OF = 'pick up %1 and place on %2';
+Blockly.Msg.MOTION_PICKING = 'Pick up cylinder from box';
+Blockly.Msg.MOTION_PLACING = 'Place cylinder on stack';
+Blockly.Msg.MOTION_PUTAWAY = 'Put away cylinder';
 
 // Operators blocks
 Blockly.Msg.OPERATORS_ADD = '%1 + %2';

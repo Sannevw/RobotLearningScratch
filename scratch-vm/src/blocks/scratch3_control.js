@@ -1,4 +1,5 @@
 const Cast = require('../util/cast');
+const s3Sens = require('./scratch3_sensing');
 
 class Scratch3ControlBlocks {
     constructor (runtime) {
@@ -7,6 +8,7 @@ class Scratch3ControlBlocks {
          * @type {Runtime}
          */
         this.runtime = runtime;
+        this.Sens = new s3Sens(this.runtime);
 
         /**
          * The "counter" block value. For compatibility with 2.0.
@@ -30,6 +32,7 @@ class Scratch3ControlBlocks {
             control_wait_until: this.waitUntil,
             control_if: this.if,
             control_if_else: this.ifElse,
+            control_if_else_pink: this.ifElsePink,
             control_stop: this.stop,
             control_create_clone_of: this.createClone,
             control_delete_this_clone: this.deleteClone,
@@ -188,6 +191,22 @@ class Scratch3ControlBlocks {
 
     incrCounter () {
         this._counter++;
+    }
+
+    ifElsePink (args, util) {
+        console.log(util.target);
+        let condition;
+        if (this.Sens.touchingObject({TOUCHINGOBJECTMENU: 'PinkCylinder'}, util) || this.Sens.touchingObject({TOUCHINGOBJECTMENU: 'PinkCylinder2'}, util)  || this.Sens.touchingObject({TOUCHINGOBJECTMENU: 'PinkCylinder3'}, util) ) {
+            condition = 1;
+        } else{
+            condition = 0;
+        }
+        // const condition = Cast.toNumber(util.target.lookupVariableByNameAndType("cat_present", "").value);
+        if (condition) {
+            util.startBranch(1, false);
+        } else {
+            util.startBranch(2, false);
+        }
     }
 
     allAtOnce (args, util) {

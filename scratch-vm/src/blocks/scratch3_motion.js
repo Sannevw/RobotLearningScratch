@@ -56,7 +56,9 @@ class Scratch3MotionBlocks {
             motion_right: this.right,
             motion_left: this.left,
             motion_charge: this.charge,
-            motion_mof: this.pickAndPlace,
+            motion_picking: this.picking,
+            motion_placing: this.placing,
+            motion_putaway: this.putAway,
             // Legacy no-op blocks:
             motion_scroll_right: () => {},
             motion_scroll_up: () => {},
@@ -419,6 +421,67 @@ class Scratch3MotionBlocks {
         if (!placeTarget) return 0;
     }
 
+    picking (args, util) {
+        console.log("Test");
+            if (util.stackTimerNeedsInit()) {
+                util.startHats('event_whenbroadcastreceived', {
+                    BROADCAST_OPTION: 'pickupObject'
+                });
+            }
+
+            if (util.stackTimerNeedsInit()) {
+                const duration = Math.max(0, 1000 * 2);
+
+                util.startStackTimer(duration);
+                console.log("Init wait time");
+                this.runtime.requestRedraw();
+                util.yield();
+            } else if (!util.stackTimerFinished()) {
+                console.log("Waiting tick");
+                util.yield();
+            }
+    }
+
+    placing (args, util) {
+        console.log("Test");
+        if (util.stackTimerNeedsInit()) {
+            util.startHats('event_whenbroadcastreceived', {
+                BROADCAST_OPTION: 'stackBlock'
+            });
+        }
+        if (util.stackTimerNeedsInit()) {
+            const duration = Math.max(0, 1000 * 5);
+
+            util.startStackTimer(duration);
+            console.log("Init wait time");
+            this.runtime.requestRedraw();
+            util.yield();
+        } else if (!util.stackTimerFinished()) {
+            console.log("Waiting tick");
+            util.yield();
+        }
+    }
+
+    putAway (args, util) {
+        if (util.stackTimerNeedsInit())
+            {
+                util.startHats('event_whenbroadcastreceived', {
+                    BROADCAST_OPTION: 'put_away'
+                });
+            }
+
+        if (util.stackTimerNeedsInit()) {
+            const duration = Math.max(0, 1000 * 2);
+
+            util.startStackTimer(duration);
+            console.log("Init wait time");
+            this.runtime.requestRedraw();
+            util.yield();
+        } else if (!util.stackTimerFinished()) {
+            console.log("Waiting tick");
+            util.yield();
+        }
+    }
 
     right (args, util) {
         const degrees = 90;

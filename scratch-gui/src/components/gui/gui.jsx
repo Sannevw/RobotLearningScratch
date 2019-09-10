@@ -335,22 +335,30 @@ const GUIComponent = props => {
                                 vm={vm}
                             />
                             <div>
-                            <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Instructions. </div>
+                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Instructions. </div>
                             </div>
                             <div>
-                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Create a program that: 1) makes Cozmo the robot move to its charging station,
-                                    2) charge its battery, and 3) move back to the living room.
+                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Create a program that: <br/><br/>1) makes Cozmo the robot pick <b>1</b> cylinder from the box <br/><br/> 2a) <b>Only</b> if the cylinder is pink, the robot should place the cylinder on the table.
+                                    <br/><br/> 2b) If the color is <b>not</b> pink, the robot should put the cylinder away in the bin.
                                 </div>
                             </div>
                             <div>
-                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>You can drag and drop actions from the
+                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}><br/><br/>You can drag and drop actions from the
                                     menu on the left, drag them to the 'When Green Flag Clicked' block. When you click the green Flag (next to the Red Stop sign)
-                                    the program should make the robot do all 3 steps in that one click. </div>
+                                    the program should make the robot do the 2 steps (picking and placing) all in that one click.
+                                    <br/><br/>
+                                    NOTE: You are not required to use all available blocks. Just use the ones that you need to complete the task successfully.
+                                </div>
                             </div>
                             <div>
                                 <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>
-                                    If the program is not correct, don't worry. Just click retry! </div>
+                                    <br/><br/>
+                                    If the program is not correct, just click stop to stop Cozmo, then click retry to reset the robots position, change your blocks and try again!
+                                    You should take maximum 15 minutes to finish the task. If you do not have a successful program after 15 minutes, please still download your project and upload the unfinished program.<br/><br/>
+
+                                    Do <b>NOT</b> change any existing code you may find in the Workspace.</div>
                             </div>
+
 
 
                             {/*<Box className={styles.targetWrapper}>*/}

@@ -154,13 +154,29 @@ const motion = function (isStage, targetId) {
 <!--            </value>-->
 <!--        </block>-->
         ${blockSeparator}
-        <block id="of" type="motion_of">
-            <value name="PROPERTY">
-            <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>
-            </value>
-        </block>
+<!--        <block type="motion_of">-->
+<!--            <value name="PROPERTY">-->
+<!--            <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>-->
+<!--            </value>-->
+<!--            <value name="OBJECT">-->
+<!--            <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>-->
+<!--            </value>-->
+<!--        </block>-->
 <!--		<block type="motion_charge"/>-->
 <!--		<block type="motion_left"/>-->
+        <block id="of" type="motion_of">
+            <value name="PROPERTY">
+                <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>
+            </value>
+            <value name="OBJECT">
+                <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>
+            </value>
+        </block>
+<!--        <block id="of" type="sensing_of">-->
+<!--            <value name="OBJECT">-->
+<!--                <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>-->
+<!--            </value>-->
+<!--        </block>-->
 <!--        <block type="motion_right"/>--> `}
         ${categorySeparator}
     </category>

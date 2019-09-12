@@ -126,8 +126,9 @@ export default function (vm) {
 
                     if (defaultProjectId === '322226535' && vm.runtime.targets[targetId].sprite.name.includes("Cylinder"))
                     {
-                        //console.log(vm.runtime.targets[targetId].sprite.name);
+                        console.log("getting cylinders..");
                         // eslint-disable-next-line max-len
+
                         sprites.push([vm.runtime.targets[targetId].sprite.name, vm.runtime.targets[targetId].sprite.name]);
                     }
                     else if (defaultProjectId === '321147033') {

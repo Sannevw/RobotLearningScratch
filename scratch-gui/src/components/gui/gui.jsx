@@ -21,7 +21,7 @@ import MenuBar from '../menu-bar/menu-bar.jsx';
 import CostumeLibrary from '../../containers/costume-library.jsx';
 import BackdropLibrary from '../../containers/backdrop-library.jsx';
 import Watermark from '../../containers/watermark.jsx';
-
+import SimpleCountdownTimer from './react_timer.js';
 import Backpack from '../../containers/backpack.jsx';
 import WebGlModal from '../../containers/webgl-modal.jsx';
 import TipsLibrary from '../../containers/tips-library.jsx';
@@ -334,7 +334,13 @@ const GUIComponent = props => {
                                 stageSize={stageSize}
                                 vm={vm}
                             />
+
+                            <SimpleCountdownTimer/>
+                            <br/><br/>
+
                             <div>
+
+
                             <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Instructions. </div>
                             </div>
                             <div>
@@ -357,6 +363,8 @@ const GUIComponent = props => {
                                     You should take maximum 15 minutes to finish the task. If you do not have a successful program after 15 minutes, please still download your project and upload the unfinished program.<br/><br/>
 
                                 Do NOT change any existing code you may find in the Workspace.</div>
+
+
                             </div>
 
 

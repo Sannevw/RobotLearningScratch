@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import bindAll from 'lodash.bindall';
 import bowser from 'bowser';
 import React from 'react';
-
+import ReactDOM from 'react-dom';
+import Countdown from 'react-countdown-now';
 import VM from 'scratch-vm';
 
 import Box from '../box/box.jsx';

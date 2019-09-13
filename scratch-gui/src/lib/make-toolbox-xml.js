@@ -132,55 +132,41 @@ const motion = function (isStage, targetId) {
                 </shadow>
             </value>
         </block> */ `
-<!--        <block type="motion_turnright">-->
-<!--            <value name="DEGREES">-->
-<!--                <shadow type="math_number">-->
-<!--                    <field name="NUM">15</field>-->
-<!--                </shadow>-->
-<!--            </value>-->
-<!--        </block>-->
-<!--        <block type="motion_turnleft">-->
-<!--            <value name="DEGREES">-->
-<!--                <shadow type="math_number">-->
-<!--                    <field name="NUM">15</field>-->
-<!--                </shadow>-->
-<!--            </value>-->
-<!--        </block>-->
-<!--	<block type="motion_gridmove">-->
-<!--            <value name="STEPS">-->
-<!--                <shadow type="math_number">-->
-<!--                    <field name="NUM">1</field>-->
-<!--                </shadow>-->
-<!--            </value>-->
-<!--        </block>-->
-        ${blockSeparator}
-<!--        <block type="motion_of">-->
-<!--            <value name="PROPERTY">-->
-<!--            <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>-->
-<!--            </value>-->
-<!--            <value name="OBJECT">-->
-<!--            <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>-->
-<!--            </value>-->
-<!--        </block>-->
-<!--		<block type="motion_charge"/>-->
-<!--		<block type="motion_left"/>-->
-        <block id="of" type="motion_of">
-            <value name="PROPERTY">
-                <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>
-            </value>
-            <value name="OBJECT">
-                <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>
-            </value>
-            <value name="OBJECT">
-            <shadow id="sensing_of_object_menu"type="sensing_of_object_menu"/>
+        <!--<block type="motion_turnright">
+            <value name="DEGREES">
+                <shadow type="math_number">
+                    <field name="NUM">15</field>
+                </shadow>
             </value>
         </block>
-<!--        <block id="of" type="sensing_of">-->
-<!--            <value name="OBJECT">-->
-<!--                <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>-->
-<!--            </value>-->
-<!--        </block>-->
-<!--        <block type="motion_right"/>--> `}
+        <block type="motion_turnleft">
+            <value name="DEGREES">
+                <shadow type="math_number">
+                    <field name="NUM">15</field>
+                </shadow>
+            </value>
+        </block>
+	<block type="motion_gridmove">
+            <value name="STEPS">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>-->
+        <block type="motion_of">
+		    <value name="PROPERTY">
+            <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>
+            </value>
+            <value name="OBJECT">
+                <shadow id="sensing_of_object_menu" type="sensing_of_object_menu"/>
+            </value>
+		</block>
+        ${blockSeparator}
+<!--        <block type="motion_pickobject"/>-->
+<!--        <block type="motion_charge"/>-->
+<!--        <block type="motion_movecat"/>-->
+        <!--<block type="motion_left"/>
+        <block type="motion_right"/>--> `}
         ${categorySeparator}
     </category>
     `;
@@ -189,11 +175,11 @@ const motion = function (isStage, targetId) {
 const xmlEscape = function (unsafe) {
     return unsafe.replace(/[<>&'"]/g, c => {
         switch (c) {
-        case '<': return '&lt;';
-        case '>': return '&gt;';
-        case '&': return '&amp;';
-        case '\'': return '&apos;';
-        case '"': return '&quot;';
+            case '<': return '&lt;';
+            case '>': return '&gt;';
+            case '&': return '&amp;';
+            case '\'': return '&apos;';
+            case '"': return '&quot;';
         }
     });
 };
@@ -393,20 +379,20 @@ const sound = function (isStage, targetId, soundName) {
 const events = function (isStage) {
     return `
     <category name="%{BKY_CATEGORY_EVENTS}" id="events" colour="#FFD500" secondaryColour="#CC9900">
-<!--        <block type="event_whenflagclicked"/>-->
+        <block type="event_whenflagclicked"/>
 
-<!--        <block type="event_whenbroadcastreceived">-->
-<!--        </block>-->
-<!--        <block type="event_broadcast">-->
-<!--            <value name="BROADCAST_INPUT">-->
-<!--                <shadow type="event_broadcast_menu"></shadow>-->
-<!--            </value>-->
-<!--        </block>-->
-<!--        <block type="event_broadcastandwait">-->
-<!--            <value name="BROADCAST_INPUT">-->
-<!--              <shadow type="event_broadcast_menu"></shadow>-->
-<!--            </value>-->
-<!--        </block>-->
+        <block type="event_whenbroadcastreceived">
+        </block>
+        <block type="event_broadcast">
+            <value name="BROADCAST_INPUT">
+                <shadow type="event_broadcast_menu"></shadow>
+            </value>
+        </block>
+        <block type="event_broadcastandwait">
+            <value name="BROADCAST_INPUT">
+              <shadow type="event_broadcast_menu"></shadow>
+            </value>
+        </block>
         ${categorySeparator}
     </category>
     `;
@@ -439,29 +425,30 @@ ${blockSeparator}
 const control = function (isStage) {
     return `
     <category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#FFAB19" secondaryColour="#CF8B17">
-<!--        <block type="control_wait">-->
-<!--            <value name="DURATION">-->
-<!--                <shadow type="math_positive_number">-->
-<!--                    <field name="NUM">1</field>-->
-<!--                </shadow>-->
-<!--            </value>-->
-<!--        </block>-->
-             ${blockSeparator}
-<!--        // <block type="control_repeat">-->
-<!--        //     <value name="TIMES">-->
-<!--        //         <shadow type="math_whole_number">-->
-<!--        //             <field name="NUM">10</field>-->
-<!--        //         </shadow>-->
-<!--        //     </value>-->
-<!--        // </block>-->
-<!--        <block id="forever" type="control_forever"/>-->
+        <block type="control_wait">
+            <value name="DURATION">
+                <shadow type="math_positive_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
         ${blockSeparator}
-<!--        <block type="control_if"/>-->
-<!--        <block type="control_if_else"/>-->
-<!--        <block id="wait_until" type="control_wait_until"/>-->
-<!--        <block id="repeat_until" type="control_repeat_until"/>-->
-<!--        -->${blockSeparator}
-<!--        <block type="control_stop"/>-->
+        <!--<block type="control_repeat">
+            <value name="TIMES">
+                <shadow type="math_whole_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block id="forever" type="control_forever"/>-->
+        ${blockSeparator}
+        <!--<block type="control_if"/>
+        <block type="control_if_else"/>-->
+        <block type="control_if_else_cat"/>
+        <!--<block id="wait_until" type="control_wait_until"/>
+        &lt;!&ndash;<block id="repeat_until" type="control_repeat_until"/>&ndash;&gt;-->
+        ${blockSeparator}
+        <!--<block type="control_stop"/>-->
         ${blockSeparator}
 
         ${categorySeparator}
@@ -560,11 +547,6 @@ const sensing = function (isStage) {
                 </value>
             </block>
             ${blockSeparator}
-			<block type="sensing_touchingcolor">
-				<value name="COLOR">
-					<shadow type="colour_picker"/>
-				</value>
-			</block>
         `}
 
         ${categorySeparator}
@@ -811,7 +793,7 @@ const xmlClose = '</xml>';
  * @returns {string} - a ScratchBlocks-style XML document for the contents of the toolbox.
  */
 const makeToolboxXML = function (isStage, targetId, categoriesXML,
-    costumeName = '', backdropName = '', soundName = '') {
+                                 costumeName = '', backdropName = '', soundName = '') {
     const gap = [categorySeparator];
 
     costumeName = xmlEscape(costumeName);
@@ -823,11 +805,11 @@ const makeToolboxXML = function (isStage, targetId, categoriesXML,
         motion(isStage, targetId), gap,
         //looks(isStage, targetId, costumeName, backdropName), gap,
         //sound(isStage, targetId, soundName), gap,
-        // events(isStage, targetId), gap,
-        // control(isStage, targetId), gap,
+        //events(isStage, targetId), gap,
+        control(isStage, targetId)//, gap,
         //sensing(isStage, targetId), gap,
         //operators(isStage, targetId), gap,
-        //(isStage, targetId)//, gap,
+        //variables(isStage, targetId)//, gap,
         //myBlocks(isStage, targetId)
     ];
 

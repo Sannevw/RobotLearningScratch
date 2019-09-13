@@ -91,10 +91,11 @@
     "react-draggable": "3.0.5",
     "react-ga": "2.5.3",
     "react-intl": "2.4.0",
+    "react-intl-redux": "^0.7.0",
     "react-modal": "3.6.1",
     "react-popover": "0.5.10",
     "react-redux": "5.0.7",
-    "react-responsive": "5.0.0",
+    "react-responsive": "^5.0.0",
     "react-style-proptype": "3.2.2",
     "react-tabs": "2.3.0",
     "react-test-renderer": "16.2.0",
@@ -140,7 +141,6 @@
     }
   },
   "dependencies": {
-    "react-component-countdown-timer": "^0.1.1",
-    "react-countdown-now": "^2.1.1"
+    "react-component-countdown-timer": "^0.1.1"
   }
 }

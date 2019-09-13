@@ -21,7 +21,8 @@ import MenuBar from '../menu-bar/menu-bar.jsx';
 import CostumeLibrary from '../../containers/costume-library.jsx';
 import BackdropLibrary from '../../containers/backdrop-library.jsx';
 import Watermark from '../../containers/watermark.jsx';
-import SimpleCountdownTimer from './react_timer.js';
+//
+// import SimpleCountdownTimer from './react_timer.js';
 import Backpack from '../../containers/backpack.jsx';
 import WebGlModal from '../../containers/webgl-modal.jsx';
 import TipsLibrary from '../../containers/tips-library.jsx';
@@ -335,7 +336,7 @@ const GUIComponent = props => {
                                 vm={vm}
                             />
 
-                            <SimpleCountdownTimer/>
+                            {/*<SimpleCountdownTimer/>*/}
                             <br/><br/>
 
                             <div>

@@ -425,13 +425,13 @@ ${blockSeparator}
 const control = function (isStage) {
     return `
     <category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#FFAB19" secondaryColour="#CF8B17">
-        <block type="control_wait">
-            <value name="DURATION">
-                <shadow type="math_positive_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-        </block>
+<!--        <block type="control_wait">-->
+<!--            <value name="DURATION">-->
+<!--                <shadow type="math_positive_number">-->
+<!--                    <field name="NUM">1</field>-->
+<!--                </shadow>-->
+<!--            </value>-->
+<!--        </block>-->
         ${blockSeparator}
         <!--<block type="control_repeat">
             <value name="TIMES">
@@ -441,15 +441,9 @@ const control = function (isStage) {
             </value>
         </block>
         <block id="forever" type="control_forever"/>-->
-        ${blockSeparator}
         <!--<block type="control_if"/>
         <block type="control_if_else"/>-->
-        <block type="control_if_else_cat"/>
         <!--<block id="wait_until" type="control_wait_until"/>
-        &lt;!&ndash;<block id="repeat_until" type="control_repeat_until"/>&ndash;&gt;-->
-        ${blockSeparator}
-        <!--<block type="control_stop"/>-->
-        ${blockSeparator}
 
         ${categorySeparator}
     </category>
@@ -806,7 +800,7 @@ const makeToolboxXML = function (isStage, targetId, categoriesXML,
         //looks(isStage, targetId, costumeName, backdropName), gap,
         //sound(isStage, targetId, soundName), gap,
         //events(isStage, targetId), gap,
-        control(isStage, targetId)//, gap,
+        //control(isStage, targetId)//, gap,
         //sensing(isStage, targetId), gap,
         //operators(isStage, targetId), gap,
         //variables(isStage, targetId)//, gap,

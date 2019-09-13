@@ -340,32 +340,18 @@ const GUIComponent = props => {
                             <br/><br/>
 
                             <div>
-
-
-                            <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Instructions. </div>
+                                <div style={{paddingLeft: '0px','fontSize': '14px', width: '630px'}}>Instructions </div>
                             </div>
                             <div>
-                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Create a program that: <br/><br/>1) makes Cozmo the robot stack the green cylinder on the pink cylinder
+                                <div style={{paddingLeft: '0px','fontSize': '12px', width: '630px'}}>Create a program that: <br/><br/>1) makes Cozmo the robot stack the green cylinder on the pink cylinder
                                     <br/><br/> 2) and stack the blue cylinder on the green cylinder.
+                                    <br/><br/> NOTE: You are not required to use all available blocks. Do NOT change ny existing code you may find in the Workspace. <br/><br/>
                                 </div>
                             </div>
                             <div>
-                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}><br/><br/>You can drag and drop actions from the
-                                    menu on the left, drag them to the 'When Green Flag Clicked' block. When you click the green Flag (next to the Red Stop sign)
-                                    the program should make the robot do both 2 steps in that one click.
-                                    <br/><br/>
-                                    NOTE: You are not required to use all available blocks. Just use the ones that you need to complete the task successfully.
-                                    </div>
-                            </div>
-                            <div>
-                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>
-                                    <br/><br/>
-                                    If the program is not correct, just click stop to stop Cozmo, then click retry to reset the robots position, change your blocks and try again!
-                                    You should take maximum 15 minutes to finish the task. If you do not have a successful program after 15 minutes, please still download your project and upload the unfinished program.<br/><br/>
-
-                                Do NOT change any existing code you may find in the Workspace.</div>
-
-
+                                <div style={{paddingLeft: '0px','fontSize': '12px', width: '630px'}}>
+                                    Finish the task in max 15 minutes. If you are not done in time, please download your
+                                    project and upload the unfinished program. </div>
                             </div>
 
 

@@ -673,7 +673,7 @@ Blockly.Blocks['motion_of'] = {
       "message0": Blockly.Msg.MOTION_OF,
       "args0": [
         {
-          "type": "field_dropdown",
+          "type": "input_value",
           "name": "PROPERTY",
           "options": [
             ['Sprite1', 'Sprite1']

@@ -44,7 +44,7 @@ Blockly.DataCategory = function(workspace) {
   var variableModelList = workspace.getVariablesOfType('');
   variableModelList.sort(Blockly.VariableModel.compareByName);
   var xmlList = [];
-
+  console.log("var list: ", variableModelList);
   Blockly.DataCategory.addCreateButton(xmlList, workspace, 'VARIABLE');
 
   for (var i = 0; i < variableModelList.length; i++) {
@@ -88,8 +88,12 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addShowList(xmlList, firstVariable);
     Blockly.DataCategory.addHideList(xmlList, firstVariable);
   }
-
-  return xmlList;
+  if (variableModelList.length > 0){
+    return [xmlList[3]];
+  }
+  else{
+    return xmlList;
+  }
 };
 
 /**

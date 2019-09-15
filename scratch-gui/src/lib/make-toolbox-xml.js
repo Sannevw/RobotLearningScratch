@@ -427,7 +427,7 @@ const control = function (isStage) {
     return `
     <category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#FFAB19" secondaryColour="#CF8B17">
         <block type="control_if_else_pink"/>
-        <block type="control_repeat_until_height"/>
+        <block type="control_repeat_until"/>
 
         ${categorySeparator}
     </category>
@@ -728,10 +728,46 @@ const operators = function () {
     const banana = ScratchBlocks.ScratchMsgs.translate('OPERATORS_JOIN_BANANA', 'banana');
     const letter = ScratchBlocks.ScratchMsgs.translate('OPERATORS_LETTEROF_APPLE', 'a');
     return `
-    <category name="%{BKY_CATEGORY_OPERATORS}" id="operators" colour="#40BF4A" secondaryColour="#389438">
 
-        <block type="operator_and"/>
-        <block type="operator_or"/>
+    <category name="%{BKY_CATEGORY_OPERATORS}" id="operators" colour="#40BF4A" secondaryColour="#389438">
+       <!-- <block type="operator_gt">
+    <value name="OPERAND1">
+        <shadow type="text">
+            <field name="TEXT"/>
+        </shadow>
+    </value>
+    <value name="OPERAND2">
+        <shadow type="text">
+            <field name="TEXT">1</field>
+        </shadow>
+    </value>
+</block>
+<block type="operator_lt">
+    <value name="OPERAND1">
+        <shadow type="text">
+            <field name="TEXT"/>
+        </shadow>
+    </value>
+    <value name="OPERAND2">
+        <shadow type="text">
+            <field name="TEXT">1</field>
+        </shadow>
+    </value>
+</block> -->
+<block type="operator_equals">
+    <value name="OPERAND1">
+        <shadow type="text">
+            <field name="TEXT"/>
+        </shadow>
+    </value>
+    <value name="OPERAND2">
+        <shadow type="text">
+            <field name="TEXT">1</field>
+        </shadow>
+    </value>
+</block>
+        <!-- <block type="operator_and"/>
+        <block type="operator_or"/> -->
         <block type="operator_not"/>
 
         ${categorySeparator}
@@ -791,8 +827,8 @@ const makeToolboxXML = function (isStage, targetId, categoriesXML,
         //events(isStage, targetId), gap,
         control(isStage, targetId), gap,
         //sensing(isStage, targetId), gap,
-        //operators(isStage, targetId), gap,
-        //variables(isStage, targetId)//, gap,
+        operators(isStage, targetId), gap,
+        variables(isStage, targetId)//, gap,
         //myBlocks(isStage, targetId)
     ];
 

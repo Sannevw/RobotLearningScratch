@@ -1,4 +1,5 @@
 const Cast = require('../util/cast');
+const s3Sens = require('./scratch3_sensing');
 
 class Scratch3ControlBlocks {
     constructor (runtime) {
@@ -7,6 +8,7 @@ class Scratch3ControlBlocks {
          * @type {Runtime}
          */
         this.runtime = runtime;
+        this.Sens = new s3Sens(this.runtime);
 
         /**
          * The "counter" block value. For compatibility with 2.0.
@@ -30,13 +32,15 @@ class Scratch3ControlBlocks {
             control_wait_until: this.waitUntil,
             control_if: this.if,
             control_if_else: this.ifElse,
+            control_if_else_pink: this.ifElsePink,
             control_stop: this.stop,
             control_create_clone_of: this.createClone,
             control_delete_this_clone: this.deleteClone,
             control_get_counter: this.getCounter,
             control_incr_counter: this.incrCounter,
             control_clear_counter: this.clearCounter,
-            control_all_at_once: this.allAtOnce
+            control_all_at_once: this.allAtOnce,
+            control_repeat_until_height: this.repeatUntilHeight
         };
     }
 
@@ -199,6 +203,31 @@ class Scratch3ControlBlocks {
         // removed before the release of 2.0.)
         util.startBranch(1, false);
     }
-}
 
+    ifElsePink (args, util) {
+        //console.log("target: ", util.target);
+        //let condition;
+        const condition = Cast.toNumber(util.target.lookupVariableByNameAndType("conditionNr", "").value);
+        console.log("condition: ", condition);
+        if (condition > 1 && condition < 5 ) {
+            util.startBranch(1, false);
+        } else {
+            util.startBranch(2, false);
+        }
+
+        // const condition = Cast.toNumber(util.target.lookupVariableByNameAndType("cat_present", "").value);
+        console.log("Condition: ", condition);
+
+    }
+    repeatUntilHeight (args, util) {
+        const conditionHeight = Cast.toNumber(util.target.lookupVariableByNameAndType("height", "").value);
+        // If the condition is false (repeat UNTIL), start the branch.
+        console.log("height: ",conditionHeight);
+        if (conditionHeight < 3) {
+            console.log('Starting branch to repeat,  not full height.');
+            util.startBranch(1, true);
+        }
+    }
+
+}
 module.exports = Scratch3ControlBlocks;

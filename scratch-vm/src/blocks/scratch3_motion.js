@@ -50,13 +50,15 @@ class Scratch3MotionBlocks {
             motion_xposition: this.getX,
             motion_yposition: this.getY,
             motion_direction: this.getDirection,
-	        motion_movespin: this.moveSpin,
-	        motion_gridmove: this.gridMove,
+            motion_movespin: this.moveSpin,
+            motion_gridmove: this.gridMove,
             motion_pickobject: this.pickObject,
             motion_right: this.right,
             motion_left: this.left,
             motion_charge: this.charge,
-            motion_mof: this.pickAndPlace,
+            motion_picking: this.picking,
+            motion_placing: this.placing,
+            motion_putaway: this.putAway,
             // Legacy no-op blocks:
             motion_scroll_right: () => {},
             motion_scroll_up: () => {},
@@ -339,7 +341,7 @@ class Scratch3MotionBlocks {
         //      let Sens = new s3Sens(this.runtime);
 
         if (this.Sens.touchingColor(red, util) || this.Sens.touchingColor(blue, util) || this.Sens.touchingColor(green, util)){
-        // let Looks = new s3Looks(this.runtime);
+            // let Looks = new s3Looks(this.runtime);
             this.Looks.sayforsecs({MESSAGE: "I can't go there!", SECS: 3}, util);
             if (util.stackTimerNeedsInit()) {
                 const duration = 3000;
@@ -366,7 +368,7 @@ class Scratch3MotionBlocks {
     }
 
     pickObject (args, util){
-	  console.log(this.runtime._editingTarget.sprite.name);
+        console.log(this.runtime._editingTarget.sprite.name);
 
         if (this.Sens.touchingObject({TOUCHINGOBJECTMENU: 'news'}, util)){
 
@@ -380,7 +382,7 @@ class Scratch3MotionBlocks {
             // this.Looks.broadcast({BROADCAST_OPTION.name: 'news_picked'}, util);
         } else {
             0;
-  		console.log('message:', Cast.toString(args.OBJECT));
+            console.log('message:', Cast.toString(args.OBJECT));
             if (args.OBJECT !== '') {
                 // let Looks = new s3Looks(this.runtime);
                 this.Looks.sayforsecs({MESSAGE: `There is no ${Cast.toString(args.OBJECT)} to pick up here.`, SECS: 3}, util);
@@ -419,6 +421,74 @@ class Scratch3MotionBlocks {
         if (!placeTarget) return 0;
     }
 
+    picking (args, util) {
+        // console.log("Test");
+        //console.log("pick cylinder");
+        if (util.stackTimerNeedsInit()) {
+            util.startHats('event_whenbroadcastreceived', {
+                BROADCAST_OPTION: 'pickupObject'
+            });
+            console.log("pickupObject");
+        }
+
+        if (util.stackTimerNeedsInit()) {
+            const duration = Math.max(0, 1000 * 2);
+
+            util.startStackTimer(duration);
+            console.log("Init wait time");
+            this.runtime.requestRedraw();
+            util.yield();
+        } else if (!util.stackTimerFinished()) {
+            //console.log("Waiting tick");
+            util.yield();
+        }
+    }
+
+    placing (args, util) {
+        //console.log("Test");
+        //console.log("place cylinder");
+
+        if (util.stackTimerNeedsInit()) {
+            util.startHats('event_whenbroadcastreceived', {
+                BROADCAST_OPTION: 'stackBlock'
+            });
+            console.log("stackBlock");
+        }
+        if (util.stackTimerNeedsInit()) {
+            const duration = Math.max(0, 1000 * 3);
+
+            util.startStackTimer(duration);
+            console.log("Init wait time");
+            this.runtime.requestRedraw();
+            util.yield();
+        } else if (!util.stackTimerFinished()) {
+            // console.log("Waiting tick");
+            util.yield();
+        }
+    }
+
+    putAway (args, util) {
+        //console.log("put away")
+        if (util.stackTimerNeedsInit())
+        {
+            util.startHats('event_whenbroadcastreceived', {
+                BROADCAST_OPTION: 'put_away'
+            });
+            console.log("put_away")
+        }
+
+        if (util.stackTimerNeedsInit()) {
+            const duration = Math.max(0, 1000 * 3);
+
+            util.startStackTimer(duration);
+            console.log("Init wait time");
+            this.runtime.requestRedraw();
+            util.yield();
+        } else if (!util.stackTimerFinished()) {
+            //console.log("Waiting tick");
+            util.yield();
+        }
+    }
 
     right (args, util) {
         const degrees = 90;
@@ -444,10 +514,10 @@ class Scratch3MotionBlocks {
                 BROADCAST_OPTION: 'startpos'
             });
         }
-       // this.Control.wait({DURATION: '5'}, util);
-       // util.startHats('event_whenbroadcastreceived', {
-       //      BROADCAST_OPTION: 'charged'
-       //  });
+        // this.Control.wait({DURATION: '5'}, util);
+        // util.startHats('event_whenbroadcastreceived', {
+        //      BROADCAST_OPTION: 'charged'
+        //  });
     }
 }
 

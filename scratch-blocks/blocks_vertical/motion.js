@@ -603,42 +603,42 @@ Blockly.Blocks['motion_movespin'] = {
 };
 
 Blockly.Blocks['motion_gridmove'] = {
- /**
- * Block to move one grid square.
- * @this Blocky.Block
- */
- init: function() {
-  this.jsonInit({
-   "message0": Blockly.Msg.MOTION_GRIDMOVE,
-   "args0": [
-    {
-     "type": "input_value",
-     "name": "STEPS"
-    }
-   ],
-   "category": Blockly.Categories.motion,
-   "extensions": ["colours_motion", "shape_statement"]
-  });
-}
+  /**
+   * Block to move one grid square.
+   * @this Blocky.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.MOTION_GRIDMOVE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "STEPS"
+        }
+      ],
+      "category": Blockly.Categories.motion,
+      "extensions": ["colours_motion", "shape_statement"]
+    });
+  }
 };
 
-  Blockly.Blocks['motion_pickobject'] = {
-   /**
+Blockly.Blocks['motion_pickobject'] = {
+  /**
    * Block to pick up an object.
    * @this Blocky.Block
    */
-   init: function() {
+  init: function() {
     this.jsonInit({
-     "message0": Blockly.Msg.MOTION_PICKOBJECT,
-	 "args0": [
+      "message0": Blockly.Msg.MOTION_PICKOBJECT,
+      "args0": [
         {
           "type": "input_value",
           "name": "OBJECT"
         }],
-     "category": Blockly.Categories.motion,
-     "extensions": ["colours_motion", "shape_statement"]
+      "category": Blockly.Categories.motion,
+      "extensions": ["colours_motion", "shape_statement"]
     });
- }
+  }
 };
 
 Blockly.Blocks['motion_charge'] = {
@@ -663,30 +663,42 @@ Blockly.Blocks['motion_charge'] = {
   }
 };
 
-Blockly.Blocks['motion_mof'] = {
+Blockly.Blocks['motion_picking'] = {
   /**
-   * Block to report properties of sprites.
+   * Block to bounce on edge.
    * @this Blockly.Block
    */
   init: function() {
     this.jsonInit({
-      "message0": Blockly.Msg.MOTION_OF,
-      "args0": [
-        {
-          "type": "input_value",
-          "name": "PROPERTY",
-          "options": [
-            ['Sprite1', 'Sprite1']
-          ]
-        },
-        {
-          "type": "input_value",
-          "name": "OBJECT"
-        }
-      ],
-      //"output": true,
+      "message0": Blockly.Msg.MOTION_PICKING,
       "category": Blockly.Categories.motion,
-      //"outputShape": Blockly.OUTPUT_SHAPE_ROUND,
+      "extensions": ["colours_motion", "shape_statement"]
+    });
+  }
+};
+
+Blockly.Blocks['motion_putaway'] = {
+  /**
+   * Block to bounce on edge.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.MOTION_PUTAWAY,
+      "category": Blockly.Categories.motion,
+      "extensions": ["colours_motion", "shape_statement"]
+    });
+  }
+};
+Blockly.Blocks['motion_placing'] = {
+  /**
+   * Block to bounce on edge.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": Blockly.Msg.MOTION_PLACING,
+      "category": Blockly.Categories.motion,
       "extensions": ["colours_motion", "shape_statement"]
     });
   }

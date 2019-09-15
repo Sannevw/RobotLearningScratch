@@ -124,7 +124,7 @@ export default function (vm) {
                         continue;
                     }
 
-                    if (defaultProjectId === '322226535' && vm.runtime.targets[targetId].sprite.name.includes("Cylinder"))
+                    if (defaultProjectId === '327949237' && vm.runtime.targets[targetId].sprite.name.includes("Cylinder"))
                     {
                         //console.log(vm.runtime.targets[targetId].sprite.name);
                         // eslint-disable-next-line max-len

@@ -338,18 +338,16 @@ const GUIComponent = props => {
                             <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Instructions. </div>
                             </div>
                             <div>
-                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>Create a program that: 1) makes Cozmo the robot move to its charging station,
-                                    2) charge its battery, and 3) move back to the living room.
+                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}><br/><br/>Create a program that: <br/><br/> 1) makes Cozmo the robot pick a cylinder from the box until the stack's height is 3 <br/><br/> 2a) <b>Only</b> if the cylinder is pink, the robot should place the cylinder on the table/stack.
+                                    <br/><br/> 2b) If the color is <b>not</b> pink, the robot should put the cylinder away in the bin.
+                                    <br/><br/> NOTE: You are not required to use all available blocks. Do NOT change any existing code you may find in the Workspace. <br/><br/>
                                 </div>
-                            </div>
-                            <div>
-                                <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>You can drag and drop actions from the
-                                    menu on the left, drag them to the 'When Green Flag Clicked' block. When you click the green Flag (next to the Red Stop sign)
-                                    the program should make the robot do all 3 steps in that one click. </div>
-                            </div>
+                                </div>
+
                             <div>
                                 <div style={{paddingLeft: '0px','fontSize': '14px', width:'450px'}}>
-                                    If the program is not correct, don't worry. Just click retry! </div>
+                                    Finish the task in max 15 minutes. If you are not done in time, please download your
+                                    project and upload the unfinished program. </div>
                             </div>
 
 

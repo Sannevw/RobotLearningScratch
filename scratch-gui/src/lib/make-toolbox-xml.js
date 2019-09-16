@@ -426,7 +426,7 @@ ${blockSeparator}
 const control = function (isStage) {
     return `
     <category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#FFAB19" secondaryColour="#CF8B17">
-        <block type="control_if_else_pink"/>
+        <block type="control_if_else"/>
         <block type="control_repeat_until"/>
 
         ${categorySeparator}
